@@ -17,10 +17,10 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo"><h2>静读天下新闻</h2></div>
+        <div class="layui-logo"><h2>金桥工程学员跟踪</h2></div>
         <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item"><a href="Login.jsp">登录</a></li>
-            <li class="layui-nav-item"><a href="Register.jsp">注册</a></li>
+            <li class="layui-nav-item"><a href="login.jsp">登录</a></li>
+            <%--<li class="layui-nav-item"><a href="Register.jsp">注册</a></li>--%>
             <li class="layui-nav-item"><a href="SignOut.jsp">退出</a></li>
         </ul>
     </div>
@@ -33,14 +33,15 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户名：</label>
                     <div class="layui-input-block">
-                        <input type="text" name="uName" required lay-verify="required" placeholder="请输入用户名" autocomplete="off"
+                        <input type="text" name="uname" required lay-verify="required" placeholder="请输入用户名"
+                               autocomplete="off"
                                class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">密码：</label>
                     <div class="layui-input-block">
-                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                        <input type="password" name="pwd" required lay-verify="required" placeholder="请输入密码"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
@@ -48,16 +49,16 @@
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button class="layui-btn" lay-submit lay-filter="formDemo">登录</button>
-                        <button class="layui-btn layui-btn-normal" type="button" class="layui-btn layui-btn-primary" onclick="location.href='Register.jsp'">注册</button>
+                        <%--<button class="layui-btn layui-btn-normal" type="button" class="layui-btn layui-btn-primary" onclick="location.href='Register.jsp'">注册</button>--%>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 
-    <div class="layui-footer" style="left: 0">
+    <%--<div class="layui-footer" style="left: 0">
         <label style="margin-left: 520px">© 不忘初心，牢记使命，认真贯彻践行社会主义核心价值观。富强、民主、文明、和谐、自由、平等、公正、法治、爱国、敬业、诚信、友善。</label>
-    </div>
+    </div>--%>
 </div>
 <script>
     //Demo

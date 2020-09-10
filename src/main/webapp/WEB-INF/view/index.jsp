@@ -19,7 +19,7 @@
     <div class="layui-header">
         <div class="layui-logo"><h2>静读天下新闻</h2></div>
         <ul class="layui-nav layui-layout-right">
-            <li class="layui-nav-item"><a href="Login.jsp">登录</a></li>
+            <li class="layui-nav-item"><a href="login.jsp">登录</a></li>
             <li class="layui-nav-item"><a href="Register.jsp">注册</a></li>
         </ul>
     </div>
@@ -27,7 +27,7 @@
         <div align="center">
             <div style="margin: 60px 0px 0px 0px"></div>
             <table id="demo" lay-filter="test"></table>
-            要查看详细内容，请<a href="Login.jsp" style="color: dodgerblue">登录</a>
+            要查看详细内容，请<a href="login.jsp" style="color: dodgerblue">登录</a>
         </div>
     </div>
 

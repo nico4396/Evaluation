@@ -39,7 +39,7 @@
         <div class="layui-side-scroll" >
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                <li class="layui-nav-item"><a href="NewsList.jsp">新闻管理</a></li>
+                <li class="layui-nav-item"><a href="newsList.jsp">新闻管理</a></li>
                 <li class="layui-nav-item"><a href="TopicList.jsp">主题管理</a></li>
             </ul>
         </div>
