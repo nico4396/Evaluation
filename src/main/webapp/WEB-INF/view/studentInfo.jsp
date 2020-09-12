@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>新闻后台管理</title>
+    <title>学员信息</title>
     <link href="../static/layui/css/layui.css" rel="stylesheet">
     <script src="../static/layui/layui.js"></script>
     <style>
