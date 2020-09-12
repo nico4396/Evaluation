@@ -18,4 +18,8 @@ public class LoginController {
         System.out.println("123");
         return "hello";
     }
+    @RequestMapping("/stu")
+    public String stuInfo(){
+        return "studentInfo";
+    }
 }
