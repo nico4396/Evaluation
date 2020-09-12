@@ -110,12 +110,11 @@
                     <table class="layui-table" lay-data="{url:'/test/table/demo1.json', id:'test3'}" lay-filter="test3">
                         <thead>
                         <tr>
-                            <%--<th lay-data="{type:'checkbox'}">ID</th>--%>
                             <th lay-data="{field:'id', width:80}">班期</th>
-                            <th lay-data="{field:'username', width:120, edit: 'text'}">评价人</th>
-                            <th lay-data="{field:'email', edit: 'text', Width: 150}">培训期间测试成绩</th>
-                            <th lay-data="{field:'sex', width:180, edit: 'text'}">整体评价分数</th>
-                            <th lay-data="{field:'city', edit: 'text', Width: 100}">评价（包括主要优点及缺陷）</th>
+                            <th lay-data="{field:'username', width:100, edit: 'text'}">评价人</th>
+                            <th lay-data="{field:'username', width:220, edit: 'text'}">培训期间测试成绩</th>
+                            <th lay-data="{field:'sex', width:200, edit: 'text'}">整体评价分数</th>
+                            <th lay-data="{field:'city', Width: 300, edit: 'text'}">评价（包括主要优点及缺陷）</th>
                         </tr>
                         </thead>
                     </table>
