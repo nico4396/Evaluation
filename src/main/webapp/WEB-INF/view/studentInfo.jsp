@@ -50,8 +50,7 @@
         <div class="layui-collapse" lay-accordion>
             <div class="layui-colla-item">
                 <h2 class="layui-colla-title">学员详细信息</h2>
-                <div class="layui-colla-content layui-show" ‘
-                >
+                <div class="layui-colla-content layui-show" align="center">
                     <table class="layui-table" style="width: 1000px;height: 200px">
                         <tr>
                             <td width="80px">姓名</td>
