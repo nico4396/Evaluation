@@ -16,10 +16,15 @@ public class LoginController {
     @ResponseBody
     public String login(){
         System.out.println("123");
-        return "hello";
+        return "login";
     }
     @RequestMapping("/stu")
     public String stuInfo(){
         return "studentInfo";
+    }
+
+    @RequestMapping("/index")
+    public String index(){
+        return "index";
     }
 }
