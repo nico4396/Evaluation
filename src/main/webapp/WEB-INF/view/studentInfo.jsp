@@ -32,22 +32,81 @@
             <li class="layui-nav-item">
                 当前用户：<%=session.getAttribute("uname")%>
             </li>
-            <li class="layui-nav-item"><a href="SignOut.jsp">退出</a></li>
+            <li class="layui-nav-item"><a href="logout.jsp">退出</a></li>
         </ul>
     </div>
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll" >
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                <li class="layui-nav-item"><a href="newsList.jsp">新闻管理</a></li>
-                <li class="layui-nav-item"><a href="TopicList.jsp">主题管理</a></li>
+                <li class="layui-nav-item"><a href="#">新闻管理</a></li>
+                <li class="layui-nav-item"><a href="#">主题管理</a></li>
             </ul>
         </div>
     </div>
     <div class="layui-body">
-        <div align="center">
-            <div style="margin: 60px 0px 0px 0px"></div>
-            <table id="demo" lay-filter="test"></table>
+        <div align="center" style="margin: 60px 0px 0px 0px">
+            <div class="layui-collapse" lay-accordion>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">杜甫</h2>
+                    <div class="layui-colla-content layui-show">内容区域</div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">李清照</h2>
+                    <div class="layui-colla-content layui-show">内容区域</div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">鲁迅</h2>
+                    <div class="layui-colla-content layui-show">内容区域</div>
+                </div>
+            </div>
+            <%--<table id="demo" lay-filter="test"></table>--%>
+            <table class="layui-table" style="width: 1000px;height: 200px">
+                <tr>
+                    <td width="80px">姓名</td>
+                    <td><input type="text" name="sname" required lay-verify="required" autocomplete="off"
+                               class="layui-input" id="sname" style="border: hidden"></td>
+                    <td width="80px">性别</td>
+                    <td><input type="text" name="sex" required lay-verify="required" autocomplete="off"
+                               class="layui-input" id="sex" style="border: hidden"></td>
+                    <td width="80px">民族</td>
+                    <td><input type="text" name="nation" required lay-verify="required" autocomplete="off"
+                               class="layui-input" id="nation" style="border: hidden"></td>
+                    <td rowspan="4" width="100px"></td>
+                </tr>
+                <tr>
+                    <td>出生年月</td>
+                    <td><input type="text" name="birthday" required lay-verify="required" autocomplete="off"
+                               class="layui-input" id="birthday" style="border: hidden"></td>
+                    <td>籍贯</td>
+                    <td><input type="text" name="place" required lay-verify="required" autocomplete="off"
+                               class="layui-input" id="place" style="border: hidden"></td>
+                    <td>婚否</td>
+                    <td><input type="text" name="marry" required lay-verify="required" autocomplete="off"
+                               class="layui-input" id="marry" style="border: hidden"></td>
+                </tr>
+                <tr>
+                    <td>联系电话</td>
+                    <td colspan="2"><input type="text" name="phone" required lay-verify="required" autocomplete="off"
+                                           class="layui-input" id="phone" style="border: hidden"></td>
+                    <td>身份证号码</td>
+                    <td colspan="2"><input type="text" name="idcard" required lay-verify="required" autocomplete="off"
+                                           class="layui-input" id="idcard" style="border: hidden"></td>
+                </tr>
+                <tr>
+                    <td>毕业学校</td>
+                    <td colspan="2"><input type="text" name="school" required lay-verify="required" autocomplete="off"
+                                           class="layui-input" id="school" style="border: hidden"></td>
+                    <td>专业</td>
+                    <td colspan="2"><input type="text" name="major" required lay-verify="required" autocomplete="off"
+                                           class="layui-input" id="major" style="border: hidden"></td>
+                </tr>
+                <tr>
+                    <td>备注</td>
+                    <td colspan="6"><input type="text" name="notes" required lay-verify="required" autocomplete="off"
+                                           class="layui-input" id="notes" style="border: hidden"></td>
+                </tr>
+            </table>
         </div>
     </div>
 
@@ -56,7 +115,12 @@
         ©
     </div>
 </div>
-<script type="text/html" id="toolbarDemo">
+<script>
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+<%--<script type="text/html" id="toolbarDemo">
     <div style="margin-left: 600px">
         <div class="layui-input-inline" style="width: 300px">
             <input type="text" placeholder="请输入标题关键字" class="layui-input" id="filter">
@@ -203,6 +267,6 @@
             }
         });
     });
-</script>
+</script>--%>
 </body>
 </html>
