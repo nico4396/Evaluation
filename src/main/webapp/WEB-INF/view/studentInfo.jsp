@@ -36,7 +36,7 @@
         </ul>
     </div>
     <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll" >
+        <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item"><a href="#">新闻管理</a></li>
@@ -45,69 +45,75 @@
         </div>
     </div>
     <div class="layui-body">
-        <div align="center" style="margin: 60px 0px 0px 0px">
-            <div class="layui-collapse" lay-accordion>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">杜甫</h2>
-                    <div class="layui-colla-content layui-show">内容区域</div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">李清照</h2>
-                    <div class="layui-colla-content layui-show">内容区域</div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">鲁迅</h2>
-                    <div class="layui-colla-content layui-show">内容区域</div>
+        <div class="layui-collapse" lay-accordion>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">学员详细信息</h2>
+                <div class="layui-colla-content layui-show" align="center">
+                    <table class="layui-table" style="width: 1000px;height: 200px">
+                        <tr>
+                            <td width="80px">姓名</td>
+                            <td><input type="text" name="sname" required lay-verify="required" autocomplete="off"
+                                       class="layui-input" id="sname" style="border: hidden"></td>
+                            <td width="80px">性别</td>
+                            <td><input type="text" name="sex" required lay-verify="required" autocomplete="off"
+                                       class="layui-input" id="sex" style="border: hidden"></td>
+                            <td width="80px">民族</td>
+                            <td><input type="text" name="nation" required lay-verify="required" autocomplete="off"
+                                       class="layui-input" id="nation" style="border: hidden"></td>
+                            <td rowspan="4" width="100px"></td>
+                        </tr>
+                        <tr>
+                            <td>出生年月</td>
+                            <td><input type="text" name="birthday" required lay-verify="required" autocomplete="off"
+                                       class="layui-input" id="birthday" style="border: hidden"></td>
+                            <td>籍贯</td>
+                            <td><input type="text" name="place" required lay-verify="required" autocomplete="off"
+                                       class="layui-input" id="place" style="border: hidden"></td>
+                            <td>婚否</td>
+                            <td><input type="text" name="marry" required lay-verify="required" autocomplete="off"
+                                       class="layui-input" id="marry" style="border: hidden"></td>
+                        </tr>
+                        <tr>
+                            <td>联系电话</td>
+                            <td colspan="2"><input type="text" name="phone" required lay-verify="required"
+                                                   autocomplete="off"
+                                                   class="layui-input" id="phone" style="border: hidden"></td>
+                            <td>身份证号码</td>
+                            <td colspan="2"><input type="text" name="idcard" required lay-verify="required"
+                                                   autocomplete="off"
+                                                   class="layui-input" id="idcard" style="border: hidden"></td>
+                        </tr>
+                        <tr>
+                            <td>毕业学校</td>
+                            <td colspan="2"><input type="text" name="school" required lay-verify="required"
+                                                   autocomplete="off"
+                                                   class="layui-input" id="school" style="border: hidden"></td>
+                            <td>专业</td>
+                            <td colspan="2"><input type="text" name="major" required lay-verify="required"
+                                                   autocomplete="off"
+                                                   class="layui-input" id="major" style="border: hidden"></td>
+                        </tr>
+                        <tr>
+                            <td>备注</td>
+                            <td colspan="6"><input type="text" name="notes" required lay-verify="required"
+                                                   autocomplete="off"
+                                                   class="layui-input" id="notes" style="border: hidden"></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            <%--<table id="demo" lay-filter="test"></table>--%>
-            <table class="layui-table" style="width: 1000px;height: 200px">
-                <tr>
-                    <td width="80px">姓名</td>
-                    <td><input type="text" name="sname" required lay-verify="required" autocomplete="off"
-                               class="layui-input" id="sname" style="border: hidden"></td>
-                    <td width="80px">性别</td>
-                    <td><input type="text" name="sex" required lay-verify="required" autocomplete="off"
-                               class="layui-input" id="sex" style="border: hidden"></td>
-                    <td width="80px">民族</td>
-                    <td><input type="text" name="nation" required lay-verify="required" autocomplete="off"
-                               class="layui-input" id="nation" style="border: hidden"></td>
-                    <td rowspan="4" width="100px"></td>
-                </tr>
-                <tr>
-                    <td>出生年月</td>
-                    <td><input type="text" name="birthday" required lay-verify="required" autocomplete="off"
-                               class="layui-input" id="birthday" style="border: hidden"></td>
-                    <td>籍贯</td>
-                    <td><input type="text" name="place" required lay-verify="required" autocomplete="off"
-                               class="layui-input" id="place" style="border: hidden"></td>
-                    <td>婚否</td>
-                    <td><input type="text" name="marry" required lay-verify="required" autocomplete="off"
-                               class="layui-input" id="marry" style="border: hidden"></td>
-                </tr>
-                <tr>
-                    <td>联系电话</td>
-                    <td colspan="2"><input type="text" name="phone" required lay-verify="required" autocomplete="off"
-                                           class="layui-input" id="phone" style="border: hidden"></td>
-                    <td>身份证号码</td>
-                    <td colspan="2"><input type="text" name="idcard" required lay-verify="required" autocomplete="off"
-                                           class="layui-input" id="idcard" style="border: hidden"></td>
-                </tr>
-                <tr>
-                    <td>毕业学校</td>
-                    <td colspan="2"><input type="text" name="school" required lay-verify="required" autocomplete="off"
-                                           class="layui-input" id="school" style="border: hidden"></td>
-                    <td>专业</td>
-                    <td colspan="2"><input type="text" name="major" required lay-verify="required" autocomplete="off"
-                                           class="layui-input" id="major" style="border: hidden"></td>
-                </tr>
-                <tr>
-                    <td>备注</td>
-                    <td colspan="6"><input type="text" name="notes" required lay-verify="required" autocomplete="off"
-                                           class="layui-input" id="notes" style="border: hidden"></td>
-                </tr>
-            </table>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">李清照</h2>
+                <div class="layui-colla-content">内容区域</div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">鲁迅</h2>
+                <div class="layui-colla-content">内容区域</div>
+            </div>
         </div>
+        <%--<table id="demo" lay-filter="test"></table>--%>
+
+
     </div>
 
     <div class="layui-footer">
@@ -116,157 +122,9 @@
     </div>
 </div>
 <script>
-    layui.use('element', function(){
+    layui.use('element', function () {
         var element = layui.element;
     });
 </script>
-<%--<script type="text/html" id="toolbarDemo">
-    <div style="margin-left: 600px">
-        <div class="layui-input-inline" style="width: 300px">
-            <input type="text" placeholder="请输入标题关键字" class="layui-input" id="filter">
-        </div>
-        <div class="layui-input-inline" style="margin: 0 -312px 0 0">
-            <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="query">查询</button>
-            <button class="layui-btn  layui-btn-sm" lay-event="add">添加</button>
-            <button class="layui-btn layui-btn-danger layui-btn-sm" lay-event="delete">删除</button>
-        </div>
-    </div>
-</script>
-<script type="text/html" id="barDemo">
-    <button class="layui-btn layui-btn-sm" lay-event="edit">编辑</button>
-    <button class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</button>
-</script>
-<script>
-    layui.use(['table', 'layer'], function () {
-        var table = layui.table;
-        var layer = layui.layer;
-        var $ = layui.jquery;
-        //第一个实例
-        table.render({
-            elem: '#demo'
-            , toolbar: '#toolbarDemo'
-            , height: 760
-            , width: 1306
-            , url: '/GetNewsServlet' //数据接口
-            , page: true //开启分页
-            , limit: 10//每页显示几条数据
-            , limits: [10, 15, 20]
-            , cols: [[ //表头
-                {type: 'checkbox'}
-                , {field: 'newid', title: 'newid', hide: true}
-                , {field: 'topic', title: '主题', width: 100, sort: true}
-                , {field: 'title', title: '标题', width: 200}
-                , {field: 'author', title: '作者', width: 150}
-                , {field: 'summary', title: '摘要', width: 250}
-                , {field: 'content', title: '内容', width: 400}
-                , {fixed: 'right', title: '操作', width: 150, align: 'center', toolbar: '#barDemo'}
-            ]]
-        });
-        table.on('toolbar(test)', function (obj) {
-            switch (obj.event) {
-                case 'query':
-                    var filter = $("#filter").val();
-                    table.reload("demo", {  //demo 对应tableid
-                        where: {title: filter},
-                        page: {
-                            curr: 1
-                        }
-                    });
-                    break;
-                case 'add':
-                    layer.open({
-                        type: 2,//弹出完整jsp,type=1弹出隐藏div
-                        title: '添加新闻',
-                        content: 'GetAllTopicServlet',
-                        area: ['700px', '700px'],
-                        shadeClose: true
-                    });
-                    break;
-                case 'delete':
-                    var checkStatus = table.checkStatus('demo'); //demo为table的id
-                    var data = checkStatus.data; //获取选中行的数据
-                    if (data.length < 1) {
-                        layer.msg("请选择要删除的数据");
-                    } else {
-                        layer.confirm("确定要删除吗？", function () {
-                            var newids = "";
-                            for (var i = 0; i < data.length; i++) {
-                                newids += data[i].newid + ",";
-                            }
-                            newids = newids.substring(0, newids.length - 1);
-                            $.ajax({
-                                url: "DeleteNewsByIdServlet",
-                                type: "post",
-                                data: {
-                                    newids: newids
-                                },
-                                success: function (data) {
-                                    if (data) {
-                                        layer.msg("删除成功！")
-
-                                    } else {
-                                        layer.msg("删除失败！")
-                                    }
-                                    //重新加载表格
-                                    table.reload("demo", function () {
-                                        url:"GetNewsServlet"
-                                    })
-                                },
-                                error: function () {
-                                    layer.msg("执行失败！");
-                                }
-                            })
-                        })
-                    }
-                    break;
-            }
-        });
-        table.on('tool(test)', function (obj) {
-            var data = obj.data; //获得当前行数据
-            var newid = data.newid;
-            var layEvent = obj.event;
-
-            if (layEvent == 'edit') { //修改
-                //location.href = "GetNewsByIdServlet?newid=" + newid;
-                layer.open({
-                    type: 2,//弹出完整jsp,type=1弹出隐藏div
-                    title: '编辑新闻',
-                    content: 'GetNewsByIdServlet?newid=' + newid,
-                    area: ['700px', '700px'],
-                    shadeClose: true,
-                    end: function () {
-                        $(".layui-laypage-btn").click()
-                    }
-                });
-            } else if (layEvent == 'del') { //删除
-                layer.confirm('确定要删除？', function () {
-                    //location.href = "DeleteNewsServlet?newid=" + newid;
-                    $.ajax({
-                        url: "DeleteNewsServlet",
-                        type: "post",
-                        data: {
-                            newid: newid
-                        },
-                        success: function (data) {
-                            if (data) {
-                                layer.msg("删除成功！")
-
-                            } else {
-                                layer.msg("删除失败！")
-                            }
-                            //重新加载表格
-                            table.reload("demo", function () {
-                                url:"GetNewsServlet"
-                            })
-                        },
-                        error: function () {
-                            layer.msg("执行失败！")
-                        }
-                    })
-                });
-            }
-        });
-    });
-</script>--%>
 </body>
 </html>
