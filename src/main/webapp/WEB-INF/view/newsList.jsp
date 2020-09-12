@@ -11,9 +11,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>新闻后台管理</title>
-    <link href="../static/layui/css/layui.css" rel="stylesheet">
-    <script src="../static/layui/layui.js"></script>
+    <title>金桥学员成长跟踪</title>
+    <link href="../../static/layui/css/layui.css" rel="stylesheet">
+    <script src="../../static/layui/layui.js"></script>
     <style>
         .layui-table-tool-self {
             display: none;
@@ -27,7 +27,7 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">新闻后台管理</div>
+        <div class="layui-logo">金桥学员成长跟踪</div>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 当前用户：<%=session.getAttribute("uname")%>
