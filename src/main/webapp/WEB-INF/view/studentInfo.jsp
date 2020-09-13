@@ -107,7 +107,7 @@
             <div class="layui-colla-item">
                 <h2 class="layui-colla-title">培训学校评价</h2>
                 <div class="layui-colla-content">
-                    <table class="layui-table" lay-data="{url:'/test/table/demo1.json', id:'test3'}" lay-filter="test3">
+                    <table class="layui-table" lay-data="{url:'GetAllSchoolEva', id:'test3'}" lay-filter="test3">
                         <thead>
                         <tr>
                             <th lay-data="{field:'id', width:80}">班期</th>
@@ -135,7 +135,8 @@
     </div>
 </div>
 <script>
-    layui.use('table', function(){
+    layui.use('table','element', function(){
+        var element = layui.element;
         var table = layui.table;
 
         //监听单元格编辑
@@ -145,9 +146,6 @@
                 ,field = obj.field; //得到字段
             layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
         });
-    });
-    layui.use('element', function () {
-        var element = layui.element;
     });
 </script>
 </body>
