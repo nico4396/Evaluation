@@ -5,5 +5,5 @@ package com.jxd.controller;
  * @Author DengRuJia
  * @Date 2020.09.13 10:44
  */
-public class ManagerController {
+public class ManagerEvaController {
 }
