@@ -6,6 +6,8 @@ import com.jxd.service.IStudentListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @Description
  * @Author DengRuJia
@@ -19,4 +21,16 @@ public class StudentListServiceImpl implements IStudentListService {
     public Student getStuById(Integer sid) {
         return iStudentListDao.getStuById(sid);
     }
+
+    @Override
+    public List<Student> getStuByClass(Integer limit, Integer page, Integer classId,String sname) {
+        return iStudentListDao.getStuByClass(limit,page,classId,sname);
+    }
+
+    @Override
+    public List<Student> getAllStuByClass(Integer classId) {
+        return iStudentListDao.getAllStuByClass(classId);
+    }
+
+
 }

@@ -21,7 +21,7 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item"><a href="login.jsp">登录</a></li>
             <%--<li class="layui-nav-item"><a href="Register.jsp">注册</a></li>--%>
-            <li class="layui-nav-item"><a href="SignOut.jsp">退出</a></li>
+            <li class="layui-nav-item"><a href="logout.jsp">退出</a></li>
         </ul>
     </div>
     <div class="layui-body" style="left: 0">

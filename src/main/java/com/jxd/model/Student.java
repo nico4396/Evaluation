@@ -41,6 +41,22 @@ public class Student {
         this.classId = classId;
     }
 
+    public Student(Integer sid, String sname, String sex, String nation, String birthday, String place, String marry, String tel, String idCard, String school, String major, String notes, Integer classId) {
+        this.sid = sid;
+        this.sname = sname;
+        this.sex = sex;
+        this.nation = nation;
+        this.birthday = birthday;
+        this.place = place;
+        this.marry = marry;
+        this.tel = tel;
+        this.idCard = idCard;
+        this.school = school;
+        this.major = major;
+        this.notes = notes;
+        this.classId = classId;
+    }
+
     public Integer getSid() {
         return sid;
     }

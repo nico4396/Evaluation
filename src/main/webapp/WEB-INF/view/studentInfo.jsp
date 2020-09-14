@@ -41,8 +41,8 @@
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                <li class="layui-nav-item"><a href="#">新闻管理</a></li>
-                <li class="layui-nav-item"><a href="#">主题管理</a></li>
+                <li class="layui-nav-item"><a href="/stuList">学员列表</a></li>
+                <%--<li class="layui-nav-item"><a href="#">主题管理</a></li>--%>
             </ul>
         </div>
     </div>
