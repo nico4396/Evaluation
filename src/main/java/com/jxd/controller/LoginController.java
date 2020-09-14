@@ -15,7 +15,6 @@ public class LoginController {
     @RequestMapping(value = "/login", produces = "text/html;charset=utf-8")
     @ResponseBody
     public String login(){
-        System.out.println("123");
         return "login";
     }
     @RequestMapping("/stu")
@@ -26,5 +25,10 @@ public class LoginController {
     @RequestMapping("/index")
     public String index(){
         return "index";
+    }
+
+    @RequestMapping("/logout")
+    public String logout(){
+        return "logout";
     }
 }

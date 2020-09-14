@@ -13,7 +13,7 @@ public class Student {
     private String birthday;//出生年月
     private String place;//籍贯
     private String marry;//婚否
-    private Integer tel;//电话
+    private String tel;//电话
     private String idCard;//身份证
     private String school;//毕业学校
     private String major;//专业
@@ -24,23 +24,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(String sname, String sex, String nation, String birthday, String place, String marry, Integer tel, String idCard, String school, String major, String notes, Integer jid, Integer classId) {
-        this.sname = sname;
-        this.sex = sex;
-        this.nation = nation;
-        this.birthday = birthday;
-        this.place = place;
-        this.marry = marry;
-        this.tel = tel;
-        this.idCard = idCard;
-        this.school = school;
-        this.major = major;
-        this.notes = notes;
-        this.jid = jid;
-        this.classId = classId;
-    }
-
-    public Student(Integer sid, String sname, String sex, String nation, String birthday, String place, String marry, Integer tel, String idCard, String school, String major, String notes, Integer jid, Integer classId) {
+    public Student(Integer sid, String sname, String sex, String nation, String birthday, String place, String marry, String tel, String idCard, String school, String major, String notes, Integer jid, Integer classId) {
         this.sid = sid;
         this.sname = sname;
         this.sex = sex;
@@ -113,11 +97,11 @@ public class Student {
         this.marry = marry;
     }
 
-    public Integer getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(Integer tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 

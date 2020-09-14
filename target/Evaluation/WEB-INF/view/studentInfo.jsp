@@ -55,51 +55,51 @@
                         <tr>
                             <td width="80px">姓名</td>
                             <td><input type="text" name="sname" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="sname" style="border: hidden" readonly></td>
+                                       class="layui-input" id="sname" style="border: hidden" readonly value="${sessionScope.student.sname}"></td>
                             <td width="80px">性别</td>
                             <td><input type="text" name="sex" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="sex" style="border: hidden" readonly></td>
+                                       class="layui-input" id="sex" style="border: hidden" readonly value="${sessionScope.student.sex}"></td>
                             <td width="80px">民族</td>
                             <td><input type="text" name="nation" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="nation" style="border: hidden" readonly></td>
+                                       class="layui-input" id="nation" style="border: hidden" readonly value="${sessionScope.student.nation}"></td>
                             <td rowspan="4" width="100px" align="center"></td>
                         </tr>
                         <tr>
                             <td>出生年月</td>
                             <td><input type="text" name="birthday" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="birthday" style="border: hidden" readonly></td>
+                                       class="layui-input" id="birthday" style="border: hidden" readonly value="${sessionScope.student.birthday}"></td>
                             <td>籍贯</td>
                             <td><input type="text" name="place" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="place" style="border: hidden" readonly></td>
+                                       class="layui-input" id="place" style="border: hidden" readonly value="${sessionScope.student.place}"></td>
                             <td>婚否</td>
                             <td><input type="text" name="marry" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="marry" style="border: hidden" readonly></td>
+                                       class="layui-input" id="marry" style="border: hidden" readonly value="${sessionScope.student.marry}"></td>
                         </tr>
                         <tr>
                             <td>联系电话</td>
                             <td colspan="2"><input type="text" name="phone" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="phone" style="border: hidden" readonly></td>
+                                                   class="layui-input" id="phone" style="border: hidden" readonly value="${sessionScope.student.tel}"></td>
                             <td>身份证号码</td>
                             <td colspan="2"><input type="text" name="idcard" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="idcard" style="border: hidden" readonly></td>
+                                                   class="layui-input" id="idcard" style="border: hidden" readonly value="${sessionScope.student.idCard}"></td>
                         </tr>
                         <tr>
                             <td>毕业学校</td>
                             <td colspan="2"><input type="text" name="school" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="school" style="border: hidden" readonly></td>
+                                                   class="layui-input" id="school" style="border: hidden" readonly value="${sessionScope.student.school}"></td>
                             <td>专业</td>
                             <td colspan="2"><input type="text" name="major" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="major" style="border: hidden" readonly></td>
+                                                   class="layui-input" id="major" style="border: hidden" readonly value="${sessionScope.student.major}"></td>
                         </tr>
                         <tr>
                             <td>备注</td>
                             <td colspan="6"><input type="text" name="notes" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="notes" style="border: hidden" readonly></td>
+                                                   class="layui-input" id="notes" style="border: hidden" readonly value="${sessionScope.student.notes}"></td>
                         </tr>
                     </table>
                 </div>
@@ -107,7 +107,7 @@
             <div class="layui-colla-item">
                 <h2 class="layui-colla-title">培训学校评价</h2>
                 <div class="layui-colla-content">
-                    <table class="layui-table" lay-data="{url:'/test/table/demo1.json', id:'test3'}" lay-filter="test3">
+                    <table class="layui-table" lay-data="{url:'GetAllSchoolEva', id:'test3'}" lay-filter="test3">
                         <thead>
                         <tr>
                             <th lay-data="{field:'id', width:80}">班期</th>
@@ -135,7 +135,8 @@
     </div>
 </div>
 <script>
-    layui.use('table', function(){
+    layui.use(['table','element'], function(){
+        var element = layui.element;
         var table = layui.table;
 
         //监听单元格编辑
@@ -145,9 +146,6 @@
                 ,field = obj.field; //得到字段
             layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
         });
-    });
-    layui.use('element', function () {
-        var element = layui.element;
     });
 </script>
 </body>
