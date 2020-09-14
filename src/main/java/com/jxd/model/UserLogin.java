@@ -9,18 +9,23 @@ public class UserLogin {
     private Integer uid;//用户编号
     private String uname;//用户名
     private String pwd;//密码
-    private Integer power;//权限
+    private String power;//权限
 
     public UserLogin() {
     }
 
-    public UserLogin(String uname, String pwd, Integer power) {
+    public UserLogin(String uname, String pwd) {
+        this.uname = uname;
+        this.pwd = pwd;
+    }
+
+    public UserLogin(String uname, String pwd, String power) {
         this.uname = uname;
         this.pwd = pwd;
         this.power = power;
     }
 
-    public UserLogin(Integer uid, String uname, String pwd, Integer power) {
+    public UserLogin(Integer uid, String uname, String pwd, String power) {
         this.uid = uid;
         this.uname = uname;
         this.pwd = pwd;
@@ -51,11 +56,11 @@ public class UserLogin {
         this.pwd = pwd;
     }
 
-    public Integer getPower() {
+    public String getPower() {
         return power;
     }
 
-    public void setPower(Integer power) {
+    public void setPower(String power) {
         this.power = power;
     }
 }
