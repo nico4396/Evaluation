@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class LoginController {
     @RequestMapping(value = "/login", produces = "text/html;charset=utf-8")
-    //@ResponseBody
     public String login(){
         return "login";
     }
@@ -30,5 +29,10 @@ public class LoginController {
     @RequestMapping("/logout")
     public String logout(){
         return "logout";
+    }
+
+    @RequestMapping("/studentInfo2")
+    public String studentInfo2(){
+        return "studentInfo2";
     }
 }

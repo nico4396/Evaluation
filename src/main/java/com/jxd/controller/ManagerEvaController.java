@@ -1,5 +1,6 @@
 package com.jxd.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -7,10 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author DengRuJia
  * @Date 2020.09.13 10:44
  */
+@Controller
 public class ManagerEvaController {
-    @RequestMapping("/studentInfo2")
-    //@ResponseBody
-    public String studentInfo2(){
-        return "studentInfo2";
-    }
 }

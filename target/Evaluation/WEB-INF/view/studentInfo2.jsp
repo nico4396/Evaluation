@@ -29,7 +29,7 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
-        <div class="layui-logo">学员信息</div>
+        <div class="layui-logo">金桥学员成长跟踪</div>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 欢迎：<%=session.getAttribute("uname")%>
@@ -47,73 +47,41 @@
         </div>
     </div>
     <div class="layui-body">
-        <div class="layui-collapse" lay-accordion>
+        <div class="layui-collapse" <%--lay-accordion--%>>
             <div class="layui-colla-item">
-                <h2 class="layui-colla-title">学员详细信息</h2>
-                <div class="layui-colla-content layui-show" align="center">
-                    <table class="layui-table" style="width: 1000px;height: 200px">
+                <h2 class="layui-colla-title">转正工作评价</h2>
+                <div class="layui-colla-content <%--layui-show--%>" align="center">
+                    <table class="layui-table" lay-data="{url:'/test/table/demo1.json', id:'test3'}" lay-filter="test3">
+                        <thead>
                         <tr>
-                            <td width="80px">姓名</td>
-                            <td><input type="text" name="sname" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="sname" style="border: hidden" readonly></td>
-                            <td width="80px">性别</td>
-                            <td><input type="text" name="sex" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="sex" style="border: hidden" readonly></td>
-                            <td width="80px">民族</td>
-                            <td><input type="text" name="nation" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="nation" style="border: hidden" readonly></td>
-                            <td rowspan="4" width="100px" align="center"></td>
+                            <th lay-data="{field:'id', width:100}">员工部门</th>
+                            <th lay-data="{field:'id', width:100}">员工职务</th>
+                            <th lay-data="{field:'username', width:100, edit: 'text'}">评价人</th>
+                            <th lay-data="{field:'username', width:220, edit: 'text'}">评价分项</th>
+                            <th lay-data="{field:'sex', width:150, edit: 'text'}">整体评价分数</th>
+                            <th lay-data="{field:'city', Width: 300, edit: 'text'}">评价（包括主要优点及缺陷）</th>
                         </tr>
-                        <tr>
-                            <td>出生年月</td>
-                            <td><input type="text" name="birthday" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="birthday" style="border: hidden" readonly></td>
-                            <td>籍贯</td>
-                            <td><input type="text" name="place" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="place" style="border: hidden" readonly></td>
-                            <td>婚否</td>
-                            <td><input type="text" name="marry" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="marry" style="border: hidden" readonly></td>
-                        </tr>
-                        <tr>
-                            <td>联系电话</td>
-                            <td colspan="2"><input type="text" name="phone" required lay-verify="required"
-                                                   autocomplete="off"
-                                                   class="layui-input" id="phone" style="border: hidden" readonly></td>
-                            <td>身份证号码</td>
-                            <td colspan="2"><input type="text" name="idcard" required lay-verify="required"
-                                                   autocomplete="off"
-                                                   class="layui-input" id="idcard" style="border: hidden" readonly></td>
-                        </tr>
-                        <tr>
-                            <td>毕业学校</td>
-                            <td colspan="2"><input type="text" name="school" required lay-verify="required"
-                                                   autocomplete="off"
-                                                   class="layui-input" id="school" style="border: hidden" readonly></td>
-                            <td>专业</td>
-                            <td colspan="2"><input type="text" name="major" required lay-verify="required"
-                                                   autocomplete="off"
-                                                   class="layui-input" id="major" style="border: hidden" readonly></td>
-                        </tr>
-                        <tr>
-                            <td>备注</td>
-                            <td colspan="6"><input type="text" name="notes" required lay-verify="required"
-                                                   autocomplete="off"
-                                                   class="layui-input" id="notes" style="border: hidden" readonly></td>
-                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                        <tfoot>
+                            <th lay-data="{field:'city', Width: 100%, edit: 'text'}">评价（包括主要优点及缺陷）</th>
+                        </tfoot>
                     </table>
                 </div>
             </div>
             <div class="layui-colla-item">
-                <h2 class="layui-colla-title">培训学校评价</h2>
+                <h2 class="layui-colla-title">工作1年工作评价</h2>
                 <div class="layui-colla-content">
                     <table class="layui-table" lay-data="{url:'/test/table/demo1.json', id:'test3'}" lay-filter="test3">
                         <thead>
                         <tr>
-                            <th lay-data="{field:'id', width:80}">班期</th>
+                            <th lay-data="{field:'id', width:100}">员工部门</th>
+                            <th lay-data="{field:'id', width:100}">员工职务</th>
                             <th lay-data="{field:'username', width:100, edit: 'text'}">评价人</th>
-                            <th lay-data="{field:'username', width:220, edit: 'text'}">培训期间测试成绩</th>
-                            <th lay-data="{field:'sex', width:200, edit: 'text'}">整体评价分数</th>
+                            <th lay-data="{field:'username', width:220, edit: 'text'}">评价分项</th>
+                            <th lay-data="{field:'sex', width:150, edit: 'text'}">整体评价分数</th>
                             <th lay-data="{field:'city', Width: 300, edit: 'text'}">评价（包括主要优点及缺陷）</th>
                         </tr>
                         </thead>
@@ -121,8 +89,38 @@
                 </div>
             </div>
             <div class="layui-colla-item">
-                <h2 class="layui-colla-title">鲁迅</h2>
-                <div class="layui-colla-content">内容区域</div>
+                <h2 class="layui-colla-title">工作2年工作评价</h2>
+                <div class="layui-colla-content">
+                    <table class="layui-table" lay-data="{url:'/test/table/demo1.json', id:'test3'}" lay-filter="test3">
+                        <thead>
+                        <tr>
+                            <th lay-data="{field:'id', width:100}">员工部门</th>
+                            <th lay-data="{field:'id', width:100}">员工职务</th>
+                            <th lay-data="{field:'username', width:100, edit: 'text'}">评价人</th>
+                            <th lay-data="{field:'username', width:220, edit: 'text'}">评价分项</th>
+                            <th lay-data="{field:'sex', width:150, edit: 'text'}">整体评价分数</th>
+                            <th lay-data="{field:'city', Width: 300, edit: 'text'}">评价（包括主要优点及缺陷）</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">工作3年工作评价</h2>
+                <div class="layui-colla-content">
+                    <table class="layui-table" lay-data="{url:'/test/table/demo1.json', id:'test3'}" lay-filter="test3">
+                        <thead>
+                        <tr>
+                            <th lay-data="{field:'id', width:100}">员工部门</th>
+                            <th lay-data="{field:'id', width:100}">员工职务</th>
+                            <th lay-data="{field:'username', width:100, edit: 'text'}">评价人</th>
+                            <th lay-data="{field:'username', width:220, edit: 'text'}">评价分项</th>
+                            <th lay-data="{field:'sex', width:150, edit: 'text'}">整体评价分数</th>
+                            <th lay-data="{field:'city', Width: 300, edit: 'text'}">评价（包括主要优点及缺陷）</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
         <%--<table id="demo" lay-filter="test"></table>--%>
