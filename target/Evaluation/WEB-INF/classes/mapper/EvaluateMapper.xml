@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace目前可以自定义要唯一，将来面向接口编程时对应dao接口，一 个mapper相当于一个dao接口的实现类 -->
+<mapper namespace="com.jxd.dao.IEvaluateDao">
+    <select id="getByEvaid" resultType="Evaluate">
+        select evaid,evaname
+        from evaluate where evaid=#{evaid}
+    </select>
+    <update id="editWorkType">
+        update evaluate set evaname=#{evaname} where evaid=#{evaid}
+    </update>
+    <delete id="deleteWorkTypeByid">
+        delete from evaluate where evaid=#{evaid}
+    </delete>
+    <insert id="addWorkTypes">
+        insert into evaluate(evaname) values (#{evaname})
+    </insert>
+    <select id="getAllEvaluate" resultType="Evaluate">
+        select evaid,evaname from evaluate
+        <where>
+            <if test="evaname != null and evaname !=''">
+                evaname like '%' #{evaname} '%'
+            </if>
+        </where>
+    </select>
+    <select id="getAllEvaluates" resultType="Evaluate">
+        select evaid,evaname from evaluate
+        <where>
+            <if test="evaname != null and evaname !=''">
+                evaname like '%' #{evaname} '%'
+            </if>
+        </where>
+        limit #{page},#{limit}
+    </select>
+</mapper>
