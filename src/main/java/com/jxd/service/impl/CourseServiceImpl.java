@@ -17,6 +17,17 @@ import java.util.List;
 public class CourseServiceImpl implements ICourseService {
     @Autowired
     ICourseDao courseDao;
+
+    @Override
+    public Course getByCouid(Integer couid) {
+        return courseDao.getByCouid(couid);
+    }
+
+    @Override
+    public boolean editCourse(Course course) {
+        return courseDao.editCourse(course);
+    }
+
     @Override
     public List<Course> getAllCourses(Integer limit, Integer page, String couname) {
         return courseDao.getAllCourses(limit, page, couname);

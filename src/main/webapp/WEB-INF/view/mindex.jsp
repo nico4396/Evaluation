@@ -41,12 +41,19 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree"  lay-filter="test">
                 <li class="layui-nav-item"><a href="mindex">首页</a></li>
-                <li class="layui-nav-item"><a href="userlogin">用户登录管理</a></li>
-                <li class="layui-nav-item"><a href="courseList">学科管理</a></li>
-                <li class="layui-nav-item"><a href="teacher">班级管理</a></li>
-                <li class="layui-nav-item"><a href="pwd">教师管理</a></li>
-                <li class="layui-nav-item"><a href="pwd">部门管理</a></li>
-                <li class="layui-nav-item"><a href="login">评价项</a></li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;">基本信息管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="userlogin">用户登录管理</a></dd>
+                        <dd><a href="courseList">学科管理</a></dd>
+                        <dd><a href="workTypeList">评价项管理</a></dd>
+                        <dd><a href="classes">班级管理</a></dd>
+                        <dd><a href="teacher">教师管理</a></dd>
+                        <dd><a href="job">部门管理</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="login">班级选课管理</a></li>
+                <li class="layui-nav-item"><a href="login">学生基本信息管理</a></li>
             </ul>
         </div>
     </div>

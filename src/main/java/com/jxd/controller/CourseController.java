@@ -1,6 +1,7 @@
 package com.jxd.controller;
 
 
+import com.jxd.dao.ICourseDao;
 import com.jxd.model.Course;
 import com.jxd.service.ICourseService;
 import net.sf.json.JSONArray;
@@ -21,10 +22,39 @@ import java.util.List;
  * @Date 2020.09.12 15:10
  */
 @Controller
-@SessionAttributes({"count"})
+@SessionAttributes({"course"})
 public class CourseController {
     @Autowired
+    ICourseDao courseDao;
+    @Autowired
     ICourseService courseService;
+    /**
+     * @Description  编辑用户信息
+     * @params [uid, uname, pwd, power]
+     * @return java.lang.String
+     **/
+    @RequestMapping(value = "/editCourseMethod",produces = "text/html;charset=utf-8")
+    @ResponseBody
+    public String editCourse(Course course){
+        boolean isEdit=courseService.editCourse(course);
+        if (isEdit) {
+            return "修改成功";
+        }else {
+            return "修改失败";
+        }
+    }
+    /**
+     * @Description  根据uid获取用户信息
+     * @params [uid, model]
+     * @return com.jxd.model.UserLogin
+     **/
+    @RequestMapping(value = "/getByCouid",produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public Course getByUid(Integer couid, Model model){
+        Course course=courseDao.getByCouid(couid);
+        model.addAttribute("course",course);
+        return course;
+    }
     /**
      * @Description 删除用户
      * @params [id]
@@ -97,5 +127,8 @@ public class CourseController {
     public String addCourse(){
         return "addCourse";
     }
-
+    @RequestMapping("/editCourse")
+    public String editCourse(){
+        return "editCourse";
+    }
 }

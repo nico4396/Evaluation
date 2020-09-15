@@ -36,6 +36,7 @@ public class UserLoginController {
     @RequestMapping(value = "/editUserLogin",produces = "text/html;charset=utf-8")
     @ResponseBody
     public String editUserLogin(UserLogin userLogin){
+        userLogin = new UserLogin(userLogin.getUid(),userLogin.getUname(),userLogin.getPwd(),userLogin.getPower());
         boolean isEdit=userLoginService.editUserLogin(userLogin);
         if (isEdit) {
             return "修改成功";

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>学科显示界面</title>
+    <title>职工位显示界面</title>
 </head>
 <style>
     .layui-table-tool-self{
@@ -17,7 +17,7 @@
     .layui-icon-ok{
         margin-top: 6px;
     }
-    #couname{
+    #evaname{
         font-size: 20px;
     }
 </style>
@@ -52,7 +52,7 @@
                         <dd><a href="workTypeList">评价项管理</a></dd>
                         <dd><a href="classes">班级管理</a></dd>
                         <dd><a href="teacher">教师管理</a></dd>
-                        <dd><a href="job">部门管理</a></dd>
+                        <dd><a href="jobList">部门管理</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="login">班级选课管理</a></li>
@@ -63,7 +63,7 @@
 
     <div class="layui-body" style="font-size: 50px">
         <div align="center">
-            <h4 style="margin: 10px 0 20px 0">学科列表</h4>
+            <h4 style="margin: 10px 0 20px 0">评价项列表</h4>
             <table id="demo" lay-filter="test"></table>
             <c:if test="${not empty requestScope.delMsg}">
                 <p>${requestScope.delMsg}</p>
@@ -72,7 +72,8 @@
         <script type="text/html" id="toolbarDemo">
             <div align="right">
                 <div class="layui-input-inline">
-                    <input type="text" id="couname" name="couname" placeholder="请输入用户名" class="layui-input">
+                    <input type="text" id="jname" name="jname" placeholder="请输入职位名称" class="layui-input">
+                    <input type="text" id="deptname" name="deptname" placeholder="请输入部门名称" class="layui-input">
                 </div>
                 <div class="layui-input-inline">
                     <button class="layui-btn layui-btn-sm" lay-event="query">查询</button>
@@ -92,15 +93,16 @@
                     ,toolbar: '#toolbarDemo'//添加工具栏
                     ,height: 500
                     ,width:1005
-                    ,url: '/getAllCourse' //数据接口
+                    ,url: '/getAllJob' //数据接口
                     ,page: true //分页
                     ,limit:5//每页显示几条数据
                     ,limits:[5,10,15,20]
                     ,cols: [[ //表头
                         //{type:'checkbox'}
                         {type:"numbers",title:'序号',width:80}
-                        ,{field: 'couid', title: '编号', width:80, sort: true,hide:true}
-                        ,{field: 'couname', title: '学科', width:700}
+                        ,{field: 'jid', title: '编号', width:80, sort: true,hide:true}
+                        ,{field: 'jname', title: '职位', width:350}
+                        ,{field: 'deptname', title: '部门', width:350}
                         ,{field: '', title: '操作',toolbar: "#bar", width:217}
                     ]]
                 });
@@ -110,16 +112,17 @@
                     switch(obj.event){
                         case 'query':
                             //获取查询条件
-                            var filter = $("#couname").val();
+                            var filter = $("#jname").val();
+                            var filter1 = $("#deptname").val();
                             table.reload("demo",{//demo对应的是table的id
-                                where:{couname:filter},//where对应的是过滤条件
+                                where:{jname:filter,deptname:filter1},//where对应的是过滤条件
                                 page:{
                                     curr:1
                                 }
                             });
                             break;
                         case 'add':
-                            location.href="addCourse";
+                            location.href="addJob";
                             /*  layer.open({
                                   type:2,//弹出完整jsp，弹出隐藏div
                                   title:'添加学生',
@@ -133,36 +136,36 @@
 
                 table.on('tool(test)',function (obj) {
                     var data = obj.data; //获得当前行数据
-                    var couid = data.couid;
+                    var jid = data.jid;
                     var layEvent = obj.event;
                     if(layEvent == 'delete'){
                         //获取选中行
                         var checkStatus = table.checkStatus('demo'); //demo为table的id 即为基础参数 id 对应的值;
                         //获取选中行的数据
                         var date = checkStatus.data;
-                            layer.confirm('确定要删除吗？','删除命令',function () {
-                                $.ajax({
-                                    url:"deleteCourseByid",
-                                    type:"post",
-                                    data:{
-                                        couid:couid
-                                    },
-                                    success:function (data) {
-                                        if (data){
-                                            layer.msg("删除成功")
-                                        }else {
-                                            layer.msg("删除失败")
-                                        }
-                                        //重新加载表格
-                                        table.reload("demo",function () {
-                                            url:"getAllCourse"
-                                        })
-                                    },
-                                    error:function (data) {
-                                        layer.msg("执行失败")
+                        layer.confirm('确定要删除吗？','删除命令',function () {
+                            $.ajax({
+                                url:"deleteWorkTypeByid",
+                                type:"post",
+                                data:{
+                                    evaid:evaid
+                                },
+                                success:function (data) {
+                                    if (data){
+                                        layer.msg("删除成功")
+                                    }else {
+                                        layer.msg("删除失败")
                                     }
-                                })
+                                    //重新加载表格
+                                    table.reload("demo",function () {
+                                        url:"getAllWorkType"
+                                    })
+                                },
+                                error:function (data) {
+                                    layer.msg("执行失败")
+                                }
                             })
+                        })
 
                     }else if (layEvent == 'edit'){
                         //获取选中行
@@ -174,32 +177,32 @@
                         }else if(date.length > 1){
                             layer.msg("只能选择一条编辑的数据")
                         }else {*/
-                            //获取要编辑的编号
-                            //var couid = date[0].couid;
-                            $.ajax({
-                                url: "getByCouid",
-                                type: "post",
-                                data: {
-                                    couid: couid
-                                },
-                                success: function (data) {
-                                    layer.open({
-                                        type: 2,//弹出完整jsp，如果是1代表弹出隐藏div
-                                        title: '修改权限信息',
-                                        shadeClose: true,
-                                        content: 'editCourse',
-                                        area: ['480px', '500px'],
-                                        end: function () {
-                                            $(".layui-laypage-btn").click();
-                                        }
-                                    });
-                                },
-                                error: function (data) {
-                                    alert("执行失败")
-                                }
-                            })
+                        //获取要编辑的编号
+                        //var couid = date[0].couid;
+                        $.ajax({
+                            url: "getByEvaid",
+                            type: "post",
+                            data: {
+                                evaid: evaid
+                            },
+                            success: function (data) {
+                                layer.open({
+                                    type: 2,//弹出完整jsp，如果是1代表弹出隐藏div
+                                    title: '修改权限信息',
+                                    shadeClose: true,
+                                    content: 'editWorkType',
+                                    area: ['480px', '500px'],
+                                    end: function () {
+                                        $(".layui-laypage-btn").click();
+                                    }
+                                });
+                            },
+                            error: function (data) {
+                                alert("执行失败")
+                            }
+                        })
 
-                        }
+                    }
                     //}
                 });
             });

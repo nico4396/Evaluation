@@ -7,6 +7,18 @@ import java.util.List;
 
 public interface ICourseService {
     /**
+     * @Description 根据用户uid找信息
+     * @params [uid]
+     * @return com.jxd.model.UserLogin
+     **/
+    Course getByCouid(Integer couid);
+    /**
+     * @Description 编辑信息
+     * @params [student]
+     * @return boolean
+     **/
+    boolean editCourse(Course course);
+    /**
      * @Description 显示所有用户
      * @params []
      * @return java.util.List<com.jxd.model.UserLogin>
