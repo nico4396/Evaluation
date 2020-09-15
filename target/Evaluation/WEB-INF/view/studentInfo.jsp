@@ -65,7 +65,7 @@
                             <td rowspan="4" width="100px" align="center"></td>
                         </tr>
                         <tr>
-                            <td>出生年月</td>
+                            <td>出生日期</td>
                             <td><input type="text" name="birthday" required lay-verify="required" autocomplete="off"
                                        class="layui-input" id="birthday" style="border: hidden" readonly value="${sessionScope.student.birthday}"></td>
                             <td>籍贯</td>
@@ -107,17 +107,7 @@
             <div class="layui-colla-item">
                 <h2 class="layui-colla-title">培训学校评价</h2>
                 <div class="layui-colla-content">
-                    <table class="layui-table" lay-data="{url:'GetAllSchoolEva', id:'test3'}" lay-filter="test3">
-                        <thead>
-                        <tr>
-                            <th lay-data="{field:'id', width:80}">班期</th>
-                            <th lay-data="{field:'username', width:100, edit: 'text'}">评价人</th>
-                            <th lay-data="{field:'username', width:220, edit: 'text'}">培训期间测试成绩</th>
-                            <th lay-data="{field:'sex', width:200, edit: 'text'}">整体评价分数</th>
-                            <th lay-data="{field:'city', Width: 300, edit: 'text'}">评价（包括主要优点及缺陷）</th>
-                        </tr>
-                        </thead>
-                    </table>
+                    <table id="demo" lay-filter="test"></table>
                 </div>
             </div>
             <div class="layui-colla-item">
@@ -125,9 +115,6 @@
                 <div class="layui-colla-content">内容区域</div>
             </div>
         </div>
-        <%--<table id="demo" lay-filter="test"></table>--%>
-
-
     </div>
 
     <div class="layui-footer">
@@ -135,9 +122,11 @@
     </div>
 </div>
 <script>
-    layui.use(['table','element'], function(){
+    layui.use(['table','element', 'layer'], function(){
         var element = layui.element;
         var table = layui.table;
+        var layer = layui.layer;
+        var $ = layui.jquery;
 
         //监听单元格编辑
         table.on('edit(test3)', function(obj){
@@ -146,6 +135,34 @@
                 ,field = obj.field; //得到字段
             layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
         });
+
+        $(document).ready(function(){
+            $.ajax({
+                url: "/getStu"
+                , type : "GET"
+                , dataType: "JSON"
+                , success: function(data) {
+                    //处理数据，tableDate
+                    //生成动态列二维数组col
+                    table.render({
+                        elem: '#demo'
+                        , cols: [[ //表头
+                            /*{type: 'checkbox'}*/
+                            {field: 'sid', title: '学号', hide: true}
+                            , {field: 'username', title: '班期', width: 100}
+                            , {field: 'teacher', title: '评价人', width: 200}
+                            /*, {field: 'author', title: '作者', width: 150}*/
+                            , {field: 'summary', title: '整体评价分数', width: 250}
+                            , {field: 'content', title: '评价（包括主要优点及缺陷）', width: 400}
+                            /*, {fixed: 'right', title: '操作', width: 150, align: 'center', toolbar: '#barDemo'}*/
+                        ]]
+                    });
+                },error:function (data) {
+                    layer.msg("报个错")
+                }
+
+            });
+        })
     });
 </script>
 </body>

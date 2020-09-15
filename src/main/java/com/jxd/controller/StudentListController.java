@@ -27,7 +27,7 @@ public class StudentListController {
 
     @RequestMapping("/getStu")
     public String getStuById(Integer sid,Model model) {
-        Student student = iStudentListDao.getStuById(1);
+        Student student = iStudentListDao.getStuById(202001);
         model.addAttribute("student",student);
         return "studentInfo";
     }
