@@ -12,6 +12,35 @@ public class TurnWork {
     private Integer score;//评价总分
     private String content;//评价内容
     private String turnData;//评价日期
+    private String deptName;//部门名称
+    private String jname;//职务名称
+
+    public TurnWork(Integer workId, Integer jid, String appraise, Integer score, String content, String turnData, String deptName, String jname) {
+        this.workId = workId;
+        this.jid = jid;
+        this.appraise = appraise;
+        this.score = score;
+        this.content = content;
+        this.turnData = turnData;
+        this.deptName = deptName;
+        this.jname = jname;
+    }
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public String getJname() {
+        return jname;
+    }
+
+    public void setJname(String jname) {
+        this.jname = jname;
+    }
 
     public TurnWork() {
     }
