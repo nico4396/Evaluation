@@ -8,8 +8,10 @@ import com.jxd.service.IManagerEvaService;
 import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ import java.util.List;
  * @Date 2020.09.13 10:44
  */
 @Controller
+@SessionAttributes({"student"})
 public class ManagerEvaController {
     @Autowired
     IManagerEvaService managerEvaService;
@@ -89,5 +92,13 @@ public class ManagerEvaController {
         } else {
             return "评价失败";
         }
+    }
+
+    @RequestMapping(value = "/getById",produces = "application/json;charset=UTF-8")
+    @ResponseBody//将响应内容添加至响应流
+    public Student getById(Integer id, Model model){
+        Student student=managerEvaService.getById(id);
+        model.addAttribute("student",student);
+        return student;
     }
 }

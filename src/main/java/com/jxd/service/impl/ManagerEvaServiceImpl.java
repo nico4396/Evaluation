@@ -38,4 +38,9 @@ public class ManagerEvaServiceImpl implements IManagerEvaService {
     public boolean evaTurnWork(TurnWork turnWork) {
         return managerEvaDao.evaTurnWork(turnWork);
     }
+
+    @Override
+    public Student getById(Integer sid) {
+        return managerEvaDao.getById(sid);
+    }
 }

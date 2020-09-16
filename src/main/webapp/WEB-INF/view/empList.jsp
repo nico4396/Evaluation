@@ -117,7 +117,7 @@
                 {type: 'checkbox'}
                 , {field: 'sid', title: '员工编号', width: 150, sort: true ,hide:true}
                 ,{type:'numbers',title:'序号',width:50,align:"center"}
-                , {field: 'sname', title: '姓名', width: 100,align:"center",templet:"#usernameTpl"}
+                , {field: 'sname', title: '姓名', width: 100,align:"center"/*,templet:"#usernameTpl"*/}
                 , {field: 'sex', title: '性别', width: 50,align:"center"}
                 , {field: 'school', title: '学校', width: 100,align:"center"}
                 , {field: 'place', title: '籍贯', width: 100,align:"center"}
@@ -237,9 +237,9 @@
     });
 </script>
 
-<script type="text/html" id="usernameTpl">
-    <a href="studentInfo2<%--/?table-demo-id={{d.sid}}--%>" class="layui-table-link" target="_self">{{ d.uname }}</a>
-</script>
+<%--<script type="text/html" id="usernameTpl">
+    <a href="studentInfo2&lt;%&ndash;/?table-demo-id={{d.sid}}&ndash;%&gt;" class="layui-table-link" target="_self">{{ d.uname }}</a>
+</script>--%>
 
 <script>
     //JavaScript代码区域

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IManagerEvaDao {
      //获取全部学生
-     
+
      List<Student> getAllStudent(@Param("sname")String sname, @Param("jid") Integer jid);
      //分页查询
      List<Student> getStudentByPage(@Param("pageSize") Integer pageSize, @Param("page") Integer page, @Param("sname") String sname, @Param("jid") Integer jid);
@@ -21,4 +21,7 @@ public interface IManagerEvaDao {
      //转正评价
 
      boolean evaTurnWork(TurnWork turnWork);
+
+     //获取当前行id
+     Student getById(Integer sid);
 }

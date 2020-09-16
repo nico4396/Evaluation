@@ -21,4 +21,7 @@ public interface IManagerEvaService {
 
     //转正评价
     boolean evaTurnWork(TurnWork turnWork);
+
+    //获取当前行id
+    Student getById(Integer sid);
 }

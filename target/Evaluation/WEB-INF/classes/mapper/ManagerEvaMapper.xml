@@ -40,7 +40,12 @@
     </select>
 
     <insert id="evaTurnWork">
-        insert into turnwork(appraise,tscore,content)
-        values (#{appraise},#{score},#{content})
+        insert into turnwork(appraise,tscore,content,turndata)
+        values (#{appraise},#{score},#{content},curdate())
     </insert>
+
+    <select id="getById" resultType="com.jxd.model.Student">
+        select sid
+        from student where sid=#{sid}
+    </select>
 </mapper>
