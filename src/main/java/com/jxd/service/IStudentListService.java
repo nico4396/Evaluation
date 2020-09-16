@@ -4,6 +4,7 @@ import com.jxd.model.Student;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IStudentListService {
     /**
@@ -21,13 +22,13 @@ public interface IStudentListService {
      * @return java.util.List<com.jxd.model.Student>
      * @Description TODO 根据班级号和学生姓名模糊查找学生
      */
-    List<Student> getStuByClass(@Param("limit") Integer limit, @Param("page") Integer page, @Param("classId") Integer classId,@Param("sname") String sname);
+    List<Map<String,Object>> getStuByClass(@Param("limit") Integer limit, @Param("page") Integer page, @Param("classId") Integer classId,@Param("sname") String sname);
 
     /**
      * @return java.util.List<com.jxd.model.Student>
      * @Description TODO  获取该班级的所有学生
      */
-    List<Student> getAllStu();
+    List<Map<String,Object>> getAllStu();
 
     /**
      * @param sid

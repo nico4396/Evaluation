@@ -64,7 +64,7 @@
 
         <div class="layui-input-inline">
             <select id="filter2" name="otherName">
-                <option value="" ></option>
+                <option value=""></option>
                 <c:forEach var="clist" items="${sessionScope.clist}">
                     <option value="${clist.classId}"><c:out value="${clist.className}"/></option>
                 </c:forEach>
@@ -102,9 +102,10 @@
                 {type: 'numbers', title: '序号', width: 100}
                 , {field: 'sid', title: '学号', hide: true}
                 , {field: 'sname', title: '姓名', width: 100, templet: '#snameTpl'}
-                , {field: 'sex', title: '性别', width: 100}
+                , {field: 'sex', title: '性别', width: 100,align: 'center'}
                 , {field: 'school', title: '学校', width: 150}
-                , {field: 'place', title: '籍贯', width: 250}
+                , {field: 'place', title: '籍贯', width: 100}
+                , {field: 'score', title: '学校评分', width: 100,align: 'center'}
                 /*, {field: 'content', title: '内容', width: 400}*/
                 /*, {fixed: 'right', title: '操作', width: 150, align: 'center', toolbar: '#barDemo'}*/
             ]]
@@ -116,9 +117,9 @@
                     var filter2 = $("#filter2").val();
                     table.reload("demo", {  //demo 对应tableid
                         where: {
-                                sname: filter,
-                                classId:filter2
-                            },
+                            sname: filter,
+                            classId: filter2
+                        },
                         page: {
                             curr: 1
                         }

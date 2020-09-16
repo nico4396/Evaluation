@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description
@@ -23,12 +24,12 @@ public class StudentListServiceImpl implements IStudentListService {
     }
 
     @Override
-    public List<Student> getStuByClass(Integer limit, Integer page, Integer classId,String sname) {
+    public List<Map<String,Object>> getStuByClass(Integer limit, Integer page, Integer classId, String sname) {
         return iStudentListDao.getStuByClass(limit,page,classId,sname);
     }
 
     @Override
-    public List<Student> getAllStu() {
+    public List<Map<String,Object>> getAllStu() {
         return iStudentListDao.getAllStu();
     }
 

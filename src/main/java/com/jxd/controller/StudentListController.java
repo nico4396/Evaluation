@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description
@@ -45,9 +46,9 @@ public class StudentListController {
     @RequestMapping(value = "/getStuList", produces = "application/json;charset=UTF-8")
     @ResponseBody
     public JSONObject getStuByClass(Integer limit, Integer page, Integer classId,String sname){
-        List<Student> list = iStudentListService.getAllStu();
+        List<Map<String,Object>> list = iStudentListService.getAllStu();
         page=(page-1)*limit;
-            List<Student> list1 = iStudentListService.getStuByClass(limit,page,classId,sname);
+            List<Map<String,Object>> list1 = iStudentListService.getStuByClass(limit,page,classId,sname);
         JSONArray jsonArray = JSONArray.fromObject(list1);
         //创建json对象，用于返回layui表格需要的数据
         JSONObject jsonObject = new JSONObject();
