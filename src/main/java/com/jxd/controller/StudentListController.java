@@ -45,7 +45,7 @@ public class StudentListController {
     @RequestMapping(value = "/getStuList", produces = "application/json;charset=UTF-8")
     @ResponseBody
     public JSONObject getStuByClass(Integer limit, Integer page, Integer classId,String sname){
-        List<Student> list = iStudentListService.getAllStuByClass(classId);
+        List<Student> list = iStudentListService.getAllStu();
         page=(page-1)*limit;
             List<Student> list1 = iStudentListService.getStuByClass(limit,page,classId,sname);
         JSONArray jsonArray = JSONArray.fromObject(list1);

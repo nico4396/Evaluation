@@ -22,9 +22,8 @@
         </where>
         limit #{page},#{limit}
     </select>
-    <select id="getAllStuByClass" resultType="Student">
+    <select id="getAllStu" resultType="Student">
         <include refid="base"></include>
-        where classid = #{classId}
     </select>
     <select id="getStuEva" resultType="List">
         select s.sid,cl.classname from student s,classes cl

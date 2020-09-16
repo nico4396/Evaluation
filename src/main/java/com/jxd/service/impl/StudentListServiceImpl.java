@@ -28,8 +28,8 @@ public class StudentListServiceImpl implements IStudentListService {
     }
 
     @Override
-    public List<Student> getAllStuByClass(Integer classId) {
-        return iStudentListDao.getAllStuByClass(classId);
+    public List<Student> getAllStu() {
+        return iStudentListDao.getAllStu();
     }
 
     @Override

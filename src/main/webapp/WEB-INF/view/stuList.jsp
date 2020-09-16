@@ -80,7 +80,7 @@
         </div>
     </div>
 </script>
-<script type="text/html" id="usernameTpl">
+<script type="text/html" id="snameTpl">
     <a href="/getStu?sid={{d.sid}}" class="layui-table-link" target="_blank">{{ d.sname }}</a>
 </script>
 <script>
@@ -97,11 +97,11 @@
             , url: '/getStuList' //数据接口
             , page: true //开启分页
             , limit: 5//每页显示几条数据
-            , limits: [2, 5, 10, 15, 20]
+            , limits: [3, 5, 10, 15]
             , cols: [[ //表头
                 {type: 'numbers', title: '序号', width: 100}
                 , {field: 'sid', title: '学号', hide: true}
-                , {field: 'sname', title: '姓名', width: 100, templet: '#usernameTpl'}
+                , {field: 'sname', title: '姓名', width: 100, templet: '#snameTpl'}
                 , {field: 'sex', title: '性别', width: 100}
                 , {field: 'school', title: '学校', width: 150}
                 , {field: 'place', title: '籍贯', width: 250}
@@ -124,7 +124,7 @@
                         }
                     });
                     break;
-                case 'add':
+                /*case 'add':
                     layer.open({
                         type: 2,//弹出完整jsp,type=1弹出隐藏div
                         title: '添加新闻',
@@ -169,7 +169,7 @@
                             })
                         })
                     }
-                    break;
+                    break;*/
             }
         });
     });

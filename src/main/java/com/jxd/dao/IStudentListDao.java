@@ -25,9 +25,9 @@ public interface IStudentListDao {
 
     /**
      * @return java.util.List<com.jxd.model.Student>
-     * @Description TODO  获取该班级的所有学生
+     * @Description TODO  获取所有学生
      */
-    List<Student> getAllStuByClass(Integer classId);
+    List<Student> getAllStu();
 
     /**
      * @param sid
