@@ -28,4 +28,11 @@ public interface IStudentListService {
      * @Description TODO  获取该班级的所有学生
      */
     List<Student> getAllStuByClass(Integer classId);
+
+    /**
+     * @param sid
+     * @return java.util.List<com.jxd.model.Student>
+     * @Description TODO 获取学生的学号和班期
+     */
+    List<Student> getStuEva(Integer sid);
 }

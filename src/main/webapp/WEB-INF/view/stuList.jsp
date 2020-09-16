@@ -60,27 +60,34 @@
 </div>
 
 <script type="text/html" id="toolbarDemo">
-    <div style="margin-left: 600px">
-        <div class="layui-input-inline" style="width: 300px">
+    <div style="margin-left: 100px;width: 900px">
+
+        <div class="layui-input-inline">
+            <select id="filter2" name="otherName">
+                <option value="" ></option>
+                <c:forEach var="clist" items="${sessionScope.clist}">
+                    <option value="${clist.classId}"><c:out value="${clist.className}"/></option>
+                </c:forEach>
+            </select>
+        </div>
+        <div class="layui-input-inline">
             <input type="text" placeholder="请输入学生姓名" class="layui-input" id="filter">
         </div>
-        <div class="layui-input-inline" style="margin: 0 -312px 0 0">
+        <div class="layui-input-inline">
             <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="query">查询</button>
-            <button class="layui-btn  layui-btn-sm" lay-event="add">添加</button>
-            <button class="layui-btn layui-btn-danger layui-btn-sm" lay-event="delete">删除</button>
+            <%--<button class="layui-btn  layui-btn-sm" lay-event="add">添加</button>
+            <button class="layui-btn layui-btn-danger layui-btn-sm" lay-event="delete">删除</button>--%>
         </div>
     </div>
 </script>
-<%--<script type="text/html" id="usernameTpl">
-    <a href="/?table-demo-id={{sid}}" class="layui-table-link" target="_blank">{{ sname }}</a>
-</script>--%>
+<script type="text/html" id="usernameTpl">
+    <a href="/getStu?sid={{d.sid}}" class="layui-table-link" target="_blank">{{ d.sname }}</a>
+</script>
 <script>
-    layui.use(['table', 'layer', 'element', 'form'], function () {
+    layui.use(['table', 'layer'], function () {
         var table = layui.table;
         var layer = layui.layer;
         var $ = layui.jquery;
-        var element = layui.element;
-        var form = layui.form;
         //第一个实例
         table.render({
             elem: '#demo'
@@ -92,23 +99,26 @@
             , limit: 5//每页显示几条数据
             , limits: [2, 5, 10, 15, 20]
             , cols: [[ //表头
-                {type: 'checkbox'}
-                , {type: 'numbers', title: '序号', width: 100}
+                {type: 'numbers', title: '序号', width: 100}
                 , {field: 'sid', title: '学号', hide: true}
                 , {field: 'sname', title: '姓名', width: 100, templet: '#usernameTpl'}
                 , {field: 'sex', title: '性别', width: 100}
                 , {field: 'school', title: '学校', width: 150}
                 , {field: 'place', title: '籍贯', width: 250}
                 /*, {field: 'content', title: '内容', width: 400}*/
-                , {fixed: 'right', title: '操作', width: 150, align: 'center', toolbar: '#barDemo'}
+                /*, {fixed: 'right', title: '操作', width: 150, align: 'center', toolbar: '#barDemo'}*/
             ]]
         });
         table.on('toolbar(test)', function (obj) {
             switch (obj.event) {
                 case 'query':
                     var filter = $("#filter").val();
+                    var filter2 = $("#filter2").val();
                     table.reload("demo", {  //demo 对应tableid
-                        where: {sname: filter},
+                        where: {
+                                sname: filter,
+                                classId:filter2
+                            },
                         page: {
                             curr: 1
                         }

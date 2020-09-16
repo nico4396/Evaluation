@@ -55,51 +55,62 @@
                         <tr>
                             <td width="80px">姓名</td>
                             <td><input type="text" name="sname" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="sname" style="border: hidden" readonly value="${sessionScope.student.sname}"></td>
+                                       class="layui-input" id="sname" style="border: hidden" readonly
+                                       value="${sessionScope.student.sname}"></td>
                             <td width="80px">性别</td>
                             <td><input type="text" name="sex" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="sex" style="border: hidden" readonly value="${sessionScope.student.sex}"></td>
+                                       class="layui-input" id="sex" style="border: hidden" readonly
+                                       value="${sessionScope.student.sex}"></td>
                             <td width="80px">民族</td>
                             <td><input type="text" name="nation" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="nation" style="border: hidden" readonly value="${sessionScope.student.nation}"></td>
+                                       class="layui-input" id="nation" style="border: hidden" readonly
+                                       value="${sessionScope.student.nation}"></td>
                             <td rowspan="4" width="100px" align="center"></td>
                         </tr>
                         <tr>
                             <td>出生日期</td>
                             <td><input type="text" name="birthday" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="birthday" style="border: hidden" readonly value="${sessionScope.student.birthday}"></td>
+                                       class="layui-input" id="birthday" style="border: hidden" readonly
+                                       value="${sessionScope.student.birthday}"></td>
                             <td>籍贯</td>
                             <td><input type="text" name="place" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="place" style="border: hidden" readonly value="${sessionScope.student.place}"></td>
+                                       class="layui-input" id="place" style="border: hidden" readonly
+                                       value="${sessionScope.student.place}"></td>
                             <td>婚否</td>
                             <td><input type="text" name="marry" required lay-verify="required" autocomplete="off"
-                                       class="layui-input" id="marry" style="border: hidden" readonly value="${sessionScope.student.marry}"></td>
+                                       class="layui-input" id="marry" style="border: hidden" readonly
+                                       value="${sessionScope.student.marry}"></td>
                         </tr>
                         <tr>
                             <td>联系电话</td>
                             <td colspan="2"><input type="text" name="phone" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="phone" style="border: hidden" readonly value="${sessionScope.student.tel}"></td>
+                                                   class="layui-input" id="phone" style="border: hidden" readonly
+                                                   value="${sessionScope.student.tel}"></td>
                             <td>身份证号码</td>
                             <td colspan="2"><input type="text" name="idcard" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="idcard" style="border: hidden" readonly value="${sessionScope.student.idCard}"></td>
+                                                   class="layui-input" id="idcard" style="border: hidden" readonly
+                                                   value="${sessionScope.student.idCard}"></td>
                         </tr>
                         <tr>
                             <td>毕业学校</td>
                             <td colspan="2"><input type="text" name="school" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="school" style="border: hidden" readonly value="${sessionScope.student.school}"></td>
+                                                   class="layui-input" id="school" style="border: hidden" readonly
+                                                   value="${sessionScope.student.school}"></td>
                             <td>专业</td>
                             <td colspan="2"><input type="text" name="major" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="major" style="border: hidden" readonly value="${sessionScope.student.major}"></td>
+                                                   class="layui-input" id="major" style="border: hidden" readonly
+                                                   value="${sessionScope.student.major}"></td>
                         </tr>
                         <tr>
                             <td>备注</td>
                             <td colspan="6"><input type="text" name="notes" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="notes" style="border: hidden" readonly value="${sessionScope.student.notes}"></td>
+                                                   class="layui-input" id="notes" style="border: hidden" readonly
+                                                   value="${sessionScope.student.notes}"></td>
                         </tr>
                     </table>
                 </div>
@@ -122,26 +133,26 @@
     </div>
 </div>
 <script>
-    layui.use(['table','element', 'layer'], function(){
+    layui.use(['table', 'element', 'layer'], function () {
         var element = layui.element;
         var table = layui.table;
         var layer = layui.layer;
         var $ = layui.jquery;
 
         //监听单元格编辑
-        table.on('edit(test3)', function(obj){
+        table.on('edit(test3)', function (obj) {
             var value = obj.value //得到修改后的值
-                ,data = obj.data //得到所在行所有键值
-                ,field = obj.field; //得到字段
-            layer.msg('[ID: '+ data.id +'] ' + field + ' 字段更改为：'+ value);
+                , data = obj.data //得到所在行所有键值
+                , field = obj.field; //得到字段
+            layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
         });
 
-        $(document).ready(function(){
+        $(document).ready(function () {
             $.ajax({
-                url: "/getStu"
-                , type : "GET"
+                url: "getStuEva"
+                , type: "GET"
                 , dataType: "JSON"
-                , success: function(data) {
+                , success: function (data) {
                     //处理数据，tableDate
                     //生成动态列二维数组col
                     table.render({
@@ -149,7 +160,7 @@
                         , cols: [[ //表头
                             /*{type: 'checkbox'}*/
                             {field: 'sid', title: '学号', hide: true}
-                            , {field: 'username', title: '班期', width: 100}
+                            , {field: 'classname', title: '班期', width: 100}
                             , {field: 'teacher', title: '评价人', width: 200}
                             /*, {field: 'author', title: '作者', width: 150}*/
                             , {field: 'summary', title: '整体评价分数', width: 250}
@@ -157,7 +168,7 @@
                             /*, {fixed: 'right', title: '操作', width: 150, align: 'center', toolbar: '#barDemo'}*/
                         ]]
                     });
-                },error:function (data) {
+                }, error: function (data) {
                     layer.msg("报个错")
                 }
 

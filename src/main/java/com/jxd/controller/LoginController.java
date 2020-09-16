@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -28,17 +27,17 @@ public class LoginController {
     @RequestMapping(value = "/editPwd", produces = "text/html;charset=utf-8")
     @ResponseBody
     public String editPwd(@Param("pwd") String newpwd1, String newpwd2, String uname){
-            if (newpwd1.equals(newpwd2)){
-                boolean isEdit = loginService.editPwd(newpwd1, newpwd2, uname);
-                if (isEdit){
-                    return "修改成功";
-                }else {
-                    return "修改失败";
-                }
+        if (newpwd1.equals(newpwd2)){
+            boolean isEdit = loginService.editPwd(newpwd1, newpwd2, uname);
+            if (isEdit){
+                return "修改成功";
             }else {
-                return "两次新密码不相同";
+                return "修改失败";
             }
+        }else {
+            return "两次新密码不相同";
         }
+    }
 
     @RequestMapping(value = "/findUser", produces = "text/html;charset=utf-8")
     @ResponseBody
@@ -59,6 +58,7 @@ public class LoginController {
                 return "login";
             }
         } else {
+            model.addAttribute("loginMsg", "不能为空");
             return "login";
         }
     }
@@ -69,7 +69,7 @@ public class LoginController {
 
     @RequestMapping("/mindex")
     public String mindex() {
-        return "mindex";
+        return "../../WEB-INF/view/admin/mindex";
     }
 
     @RequestMapping("/repwd")

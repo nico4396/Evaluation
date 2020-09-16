@@ -13,7 +13,9 @@
     <select id="getStuByClass" resultType="Student">
         <include refid="base"></include>
         <where>
-            classid = #{classid}
+            <if test="classid != null and classid != ''">
+                classid = #{classid}
+            </if>
             <if test="sname != null and sname != ''">
                and sname like '%' #{sname} '%'
             </if>
@@ -23,5 +25,9 @@
     <select id="getAllStuByClass" resultType="Student">
         <include refid="base"></include>
         where classid = #{classId}
+    </select>
+    <select id="getStuEva" resultType="List">
+        select s.sid,cl.classname from student s,classes cl
+        where s.sid = #{sid} and s.classid = cl.classid
     </select>
 </mapper>

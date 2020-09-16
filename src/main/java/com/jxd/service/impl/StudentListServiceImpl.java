@@ -32,5 +32,10 @@ public class StudentListServiceImpl implements IStudentListService {
         return iStudentListDao.getAllStuByClass(classId);
     }
 
+    @Override
+    public List<Student> getStuEva(Integer sid) {
+        return iStudentListDao.getStuEva(sid);
+    }
+
 
 }

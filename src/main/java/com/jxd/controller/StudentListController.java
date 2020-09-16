@@ -1,7 +1,9 @@
 package com.jxd.controller;
 
-import com.jxd.dao.IStudentListDao;
+import com.jxd.model.Classes;
 import com.jxd.model.Student;
+import com.jxd.service.IClassesService;
+import com.jxd.service.IStudentListService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -20,28 +21,33 @@ import java.util.List;
  * @Date 2020.09.13 10:39
  */
 @Controller
-@SessionAttributes({"student","students"})
+@SessionAttributes({"student","students","clist"})
 public class StudentListController {
     @Autowired
-    IStudentListDao iStudentListDao;
+    IStudentListService iStudentListService;
+
+    @Autowired
+    IClassesService classesService;
 
     @RequestMapping("/getStu")
     public String getStuById(Integer sid,Model model) {
-        Student student = iStudentListDao.getStuById(202001);
+        Student student = iStudentListService.getStuById(sid);
         model.addAttribute("student",student);
         return "studentInfo";
     }
     @RequestMapping("/stuList")
-    public String stuList(){
+    public String stuList(Model model){
+        List<Classes> clist = classesService.getAllClass();
+        model.addAttribute("clist",clist);
        return  "stuList";
     }
 
     @RequestMapping(value = "/getStuList", produces = "application/json;charset=UTF-8")
     @ResponseBody
     public JSONObject getStuByClass(Integer limit, Integer page, Integer classId,String sname){
-        List<Student> list = iStudentListDao.getAllStuByClass(1);
+        List<Student> list = iStudentListService.getAllStuByClass(classId);
         page=(page-1)*limit;
-        List<Student> list1 = iStudentListDao.getStuByClass(limit,page,1,sname);
+            List<Student> list1 = iStudentListService.getStuByClass(limit,page,classId,sname);
         JSONArray jsonArray = JSONArray.fromObject(list1);
         //创建json对象，用于返回layui表格需要的数据
         JSONObject jsonObject = new JSONObject();
@@ -52,4 +58,10 @@ public class StudentListController {
         return jsonObject;
     }
 
+    @RequestMapping("/getStuEva")
+    @ResponseBody
+    public List<Student> getStuEva(Integer sid){
+        List<Student> list = iStudentListService.getStuEva(202001);
+        return list;
+    }
 }
