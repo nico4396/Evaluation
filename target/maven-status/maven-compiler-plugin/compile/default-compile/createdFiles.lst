@@ -25,7 +25,6 @@ com\jxd\model\SelectCourse.class
 com\jxd\service\ISelectCourseService.class
 com\jxd\model\Teacher.class
 com\jxd\service\impl\SelectCourseServiceImpl.class
-com\jxd\service\impl\ClasserServiceImpl.class
 com\jxd\model\UserLogin.class
 com\jxd\dao\IResetPwdDao.class
 com\jxd\controller\LoginController.class
@@ -49,6 +48,7 @@ com\jxd\service\ICourseService.class
 com\jxd\controller\TeacherEvaController.class
 com\jxd\dao\ISelectCourseDao.class
 com\jxd\controller\JobController.class
+com\jxd\service\impl\ClassesServiceImpl.class
 com\jxd\dao\ICourseDao.class
 com\jxd\model\Classes.class
 com\jxd\service\impl\ManagerEvaServiceImpl.class

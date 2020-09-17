@@ -83,9 +83,9 @@
                         </tr>
                         <tr>
                             <td>联系电话</td>
-                            <td colspan="2"><input type="text" name="phone" required lay-verify="required"
+                            <td colspan="2"><input type="text" name="tel" required lay-verify="required"
                                                    autocomplete="off"
-                                                   class="layui-input" id="phone" style="border: hidden" readonly
+                                                   class="layui-input" id="tel" style="border: hidden" readonly
                                                    value="${sessionScope.student.tel}"></td>
                             <td>身份证号码</td>
                             <td colspan="2"><input type="text" name="idcard" required lay-verify="required"

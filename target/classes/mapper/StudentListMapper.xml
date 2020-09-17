@@ -11,21 +11,27 @@
         where sid = #{sid}
     </select>
     <select id="getStuByClass" resultType="Map">
-        select s.sid,s.sname,s.sex,s.school,s.place,sc.score
-        from student s left join schooleva sc on s.sid = sc.sid
+        select s.sid,s.sname,s.sex,s.school,s.place,co.couname,sco.mark,sc.score
+        from student s
+        left join schooleva sc on sc.sid = s.sid
+        left join score sco on s.sid = sco.sid
+        left join course co on sco.couid = co.couid
         <where>
             <if test="classid != null and classid != ''">
                 classid = #{classid}
             </if>
             <if test="sname != null and sname != ''">
-               and sname like '%' #{sname} '%'
+                and sname like '%' #{sname} '%'
             </if>
         </where>
         limit #{page},#{limit}
     </select>
     <select id="getAllStu" resultType="Map">
-        select s.sid,s.sname,s.sex,s.school,s.place,sc.score
-        from student s left join schooleva sc on s.sid = sc.sid
+        select s.sid,s.sname,s.sex,s.school,s.place,co.couname,sco.mark,sc.score
+        from student s
+        left join schooleva sc on sc.sid = s.sid
+        left join score sco on s.sid = sco.sid
+        left join course co on sco.couid = co.couid
     </select>
     <select id="getStuEva" resultType="List">
         select s.sid,cl.classname from student s,classes cl

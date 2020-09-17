@@ -43,7 +43,6 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item"><a href="#">学员列表</a></li>
-                <%--<li class="layui-nav-item"><a href="#">主题管理</a></li>--%>
             </ul>
         </div>
     </div>
@@ -75,8 +74,6 @@
         </div>
         <div class="layui-input-inline">
             <button class="layui-btn layui-btn-normal layui-btn-sm" lay-event="query">查询</button>
-            <%--<button class="layui-btn  layui-btn-sm" lay-event="add">添加</button>
-            <button class="layui-btn layui-btn-danger layui-btn-sm" lay-event="delete">删除</button>--%>
         </div>
     </div>
 </script>
@@ -96,17 +93,19 @@
             , width: 1306
             , url: '/getStuList' //数据接口
             , page: true //开启分页
-            , limit: 5//每页显示几条数据
-            , limits: [3, 5, 10, 15]
+            , limit: 10//每页显示几条数据
+            , limits: [5, 10, 15]
             , cols: [[ //表头
                 {type: 'numbers', title: '序号', width: 100}
                 , {field: 'sid', title: '学号', hide: true}
                 , {field: 'sname', title: '姓名', width: 100, templet: '#snameTpl'}
-                , {field: 'sex', title: '性别', width: 100,align: 'center'}
+                , {field: 'sex', title: '性别', width: 100, align: 'center'}
                 , {field: 'school', title: '学校', width: 150}
                 , {field: 'place', title: '籍贯', width: 100}
-                , {field: 'score', title: '学校评分', width: 100,align: 'center'}
-                /*, {field: 'content', title: '内容', width: 400}*/
+                , {field: 'couname', title: '学科', width: 150}
+                , {field: 'mark', title: '分数', width: 100, align: 'center'}
+                , {field: 'score', title: '学校评分', width: 100, align: 'center'}
+
                 /*, {fixed: 'right', title: '操作', width: 150, align: 'center', toolbar: '#barDemo'}*/
             ]]
         });
