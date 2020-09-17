@@ -87,7 +87,6 @@
                 var table = layui.table;
                 var layer = layui.layer;
                 var $ = layui.jquery;
-
                 table.render({
                     elem: '#demo'
                     ,toolbar: '#toolbarDemo'//添加工具栏
