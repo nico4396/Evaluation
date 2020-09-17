@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace目前可以自定义要唯一，将来面向接口编程时对应dao接口，一 个mapper相当于一个dao接口的实现类 -->
+<mapper namespace="com.jxd.dao.IStudentListDao">
+    <sql id="base">
+        select sid,sname,sex,nation,birthday,place,marry,tel,idcard,school,major,notes,jid,classid
+        from student
+    </sql>
+    <select id="getStuById" resultType="Student">
+        select sid,sname,sex,nation,birthday,place,marry,tel,idcard,school,major,notes,jid,classid,imgname
+        from student
+        where sid = #{sid}
+    </select>
+    <select id="getStuByClass" resultType="Map">
+        select s.sid,s.sname,s.sex,s.school,s.place,co.couname,sco.mark,sc.score
+        from student s
+        left join schooleva sc on sc.sid = s.sid
+        left join score sco on s.sid = sco.sid
+        left join course co on sco.couid = co.couid
+        <where>
+            <if test="classid != null and classid != ''">
+                classid = #{classid}
+            </if>
+            <if test="sname != null and sname != ''">
+                and sname like '%' #{sname} '%'
+            </if>
+        </where>
+        limit #{page},#{limit}
+    </select>
+    <select id="getAllStu" resultType="Map">
+        select s.sid,s.sname,s.sex,s.school,s.place,co.couname,sco.mark,sc.score
+        from student s
+        left join schooleva sc on sc.sid = s.sid
+        left join score sco on s.sid = sco.sid
+        left join course co on sco.couid = co.couid
+    </select>
+    <select id="getStuEva" resultType="List">
+        select s.sid,cl.classname from student s,classes cl
+        where s.sid = #{sid} and s.classid = cl.classid
+    </select>
+</mapper>
