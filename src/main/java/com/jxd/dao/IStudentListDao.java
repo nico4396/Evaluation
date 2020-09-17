@@ -36,4 +36,11 @@ public interface IStudentListDao {
      * @Description TODO 获取学生的学号和班期
      */
     List<Student> getStuEva(Integer sid);
+
+    /**
+     * @param sid
+     * @return java.lang.String
+     * @Description TODO 根据学号获取图片
+     */
+    String getImg(Integer sid);
 }

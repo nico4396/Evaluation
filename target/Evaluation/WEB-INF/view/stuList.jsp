@@ -124,52 +124,6 @@
                         }
                     });
                     break;
-                /*case 'add':
-                    layer.open({
-                        type: 2,//弹出完整jsp,type=1弹出隐藏div
-                        title: '添加新闻',
-                        content: 'GetAllTopicServlet',
-                        area: ['700px', '700px'],
-                        shadeClose: true
-                    });
-                    break;
-                case 'delete':
-                    var checkStatus = table.checkStatus('demo'); //demo为table的id
-                    var data = checkStatus.data; //获取选中行的数据
-                    if (data.length < 1) {
-                        layer.msg("请选择要删除的数据");
-                    } else {
-                        layer.confirm("确定要删除吗？", function () {
-                            var newids = "";
-                            for (var i = 0; i < data.length; i++) {
-                                newids += data[i].newid + ",";
-                            }
-                            newids = newids.substring(0, newids.length - 1);
-                            $.ajax({
-                                url: "DeleteNewsByIdServlet",
-                                type: "post",
-                                data: {
-                                    newids: newids
-                                },
-                                success: function (data) {
-                                    if (data) {
-                                        layer.msg("删除成功！")
-
-                                    } else {
-                                        layer.msg("删除失败！")
-                                    }
-                                    //重新加载表格
-                                    table.reload("demo", function () {
-                                        url:"GetNewsServlet"
-                                    })
-                                },
-                                error: function () {
-                                    layer.msg("执行失败！");
-                                }
-                            })
-                        })
-                    }
-                    break;*/
             }
         });
     });

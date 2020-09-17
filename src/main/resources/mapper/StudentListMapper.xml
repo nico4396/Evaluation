@@ -7,7 +7,8 @@
         from student
     </sql>
     <select id="getStuById" resultType="Student">
-        <include refid="base"></include>
+        select sid,sname,sex,nation,birthday,place,marry,tel,idcard,school,major,notes,jid,classid,imgname
+        from student
         where sid = #{sid}
     </select>
     <select id="getStuByClass" resultType="Map">

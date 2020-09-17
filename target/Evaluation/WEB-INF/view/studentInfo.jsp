@@ -51,6 +51,7 @@
             <div class="layui-colla-item">
                 <h2 class="layui-colla-title">学员详细信息</h2>
                 <div class="layui-colla-content layui-show" align="center">
+                    <%--<input id="sid" value="${sessionScope.student.sid}" style="display: none">--%>
                     <table class="layui-table" style="width: 1000px;height: 200px">
                         <tr>
                             <td width="80px">姓名</td>
@@ -65,7 +66,9 @@
                             <td><input type="text" name="nation" required lay-verify="required" autocomplete="off"
                                        class="layui-input" id="nation" style="border: hidden" readonly
                                        value="${sessionScope.student.nation}"></td>
-                            <td rowspan="4" width="100px" align="center"></td>
+                            <td rowspan="4" width="100px" align="center">
+                                <div id="imgDiv"><img src="../../files/${sessionScope.student.imgName}">照片</div>
+                            </td>
                         </tr>
                         <tr>
                             <td>出生日期</td>
@@ -133,47 +136,55 @@
     </div>
 </div>
 <script>
-    layui.use(['table', 'element', 'layer'], function () {
-        var element = layui.element;
+    layui.use(['table', 'layer'], function () {
         var table = layui.table;
         var layer = layui.layer;
         var $ = layui.jquery;
+        /*var data = obj.data;*/
+        /*$.ajax({
+            url: "getImg",
+            type: "post",
+            data: {"sid":sid},
+            cache: false,//是否缓存
+            //contentType必须设定为false，
+            //即告诉服务器从浏览器提交过来的数据采用默认的数据格式
+            //contentType: false,
+            //设定为false可避免jQuery对formData的默认处理
+            processData: false,
+            success: function (data) {
+                var img = "<img src = '../../" + data + "'>";
+                $("#imgDiv").html(img);
+                //$("#imgDiv").val(data);
+            },
+            error: function (data) {
+                layer.msg("执行失败")
+            }
+        });*/
+        /*$.ajax({
+            url: "getStuEva"
+            , type: "GET"
+            , dataType: "JSON"
+            , success: function (data) {
+                //处理数据，tableDate
+                //生成动态列二维数组col
+                table.render({
+                    elem: '#demo'
+                    , cols: [[ //表头
+                        /!*{type: 'checkbox'}*!/
+                        {field: 'sid', title: '学号', hide: true}
+                        , {field: 'classname', title: '班期', width: 100}
+                        , {field: 'teacher', title: '评价人', width: 200}
+                        /!*, {field: 'author', title: '作者', width: 150}*!/
+                        , {field: 'summary', title: '整体评价分数', width: 250}
+                        , {field: 'content', title: '评价（包括主要优点及缺陷）', width: 400}
+                        /!*, {fixed: 'right', title: '操作', width: 150, align: 'center', toolbar: '#barDemo'}*!/
+                    ]]
+                });
+            }, error: function (data) {
+                layer.msg("报个错")
+            }
 
-        //监听单元格编辑
-        table.on('edit(test3)', function (obj) {
-            var value = obj.value //得到修改后的值
-                , data = obj.data //得到所在行所有键值
-                , field = obj.field; //得到字段
-            layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
-        });
-
-        $(document).ready(function () {
-            $.ajax({
-                url: "getStuEva"
-                , type: "GET"
-                , dataType: "JSON"
-                , success: function (data) {
-                    //处理数据，tableDate
-                    //生成动态列二维数组col
-                    table.render({
-                        elem: '#demo'
-                        , cols: [[ //表头
-                            /*{type: 'checkbox'}*/
-                            {field: 'sid', title: '学号', hide: true}
-                            , {field: 'classname', title: '班期', width: 100}
-                            , {field: 'teacher', title: '评价人', width: 200}
-                            /*, {field: 'author', title: '作者', width: 150}*/
-                            , {field: 'summary', title: '整体评价分数', width: 250}
-                            , {field: 'content', title: '评价（包括主要优点及缺陷）', width: 400}
-                            /*, {fixed: 'right', title: '操作', width: 150, align: 'center', toolbar: '#barDemo'}*/
-                        ]]
-                    });
-                }, error: function (data) {
-                    layer.msg("报个错")
-                }
-
-            });
-        })
+        });*/
     });
 </script>
 </body>

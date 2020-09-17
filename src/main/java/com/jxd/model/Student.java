@@ -20,8 +20,27 @@ public class Student {
     private String notes;//备注
     private Integer jid;//职务编号
     private Integer classId;//班级编号
+    private String imgName;
 
     public Student() {
+    }
+
+    public Student(Integer sid, String sname, String sex, String nation, String birthday, String place, String marry, String tel, String idCard, String school, String major, String notes, Integer jid, Integer classId, String imgName) {
+        this.sid = sid;
+        this.sname = sname;
+        this.sex = sex;
+        this.nation = nation;
+        this.birthday = birthday;
+        this.place = place;
+        this.marry = marry;
+        this.tel = tel;
+        this.idCard = idCard;
+        this.school = school;
+        this.major = major;
+        this.notes = notes;
+        this.jid = jid;
+        this.classId = classId;
+        this.imgName = imgName;
     }
 
     public Student(Integer sid, String sname, String sex, String nation, String birthday, String place, String marry, String tel, String idCard, String school, String major, String notes, Integer jid, Integer classId) {
@@ -167,5 +186,13 @@ public class Student {
 
     public void setClassId(Integer classId) {
         this.classId = classId;
+    }
+
+    public String getImgName() {
+        return imgName;
+    }
+
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
     }
 }

@@ -38,5 +38,10 @@ public class StudentListServiceImpl implements IStudentListService {
         return iStudentListDao.getStuEva(sid);
     }
 
+    @Override
+    public String getImg(Integer sid) {
+        return iStudentListDao.getImg(sid);
+    }
+
 
 }

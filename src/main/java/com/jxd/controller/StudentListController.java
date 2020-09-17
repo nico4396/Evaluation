@@ -33,6 +33,7 @@ public class StudentListController {
     @RequestMapping("/getStu")
     public String getStuById(Integer sid,Model model) {
         Student student = iStudentListService.getStuById(sid);
+        String img = student.getImgName();
         model.addAttribute("student",student);
         return "studentInfo";
     }
@@ -57,6 +58,12 @@ public class StudentListController {
         jsonObject.put("count",list.size());//一共有多少条数据
         jsonObject.put("data",jsonArray);
         return jsonObject;
+    }
+    @RequestMapping("/getImg")
+    @ResponseBody
+    public String getImg(Integer sid){
+        String iname = iStudentListService.getImg(sid);
+        return iname;
     }
 
     @RequestMapping("/getStuEva")
