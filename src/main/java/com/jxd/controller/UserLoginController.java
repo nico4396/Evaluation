@@ -7,12 +7,10 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -120,7 +118,7 @@ public class UserLoginController {
     **/
     @RequestMapping("/userlogin")
     public String student() {
-        return "userlogin";
+        return "../../WEB-INF/view/admin/user/userlogin";
     }
 
     /**
@@ -130,7 +128,7 @@ public class UserLoginController {
      **/
     @RequestMapping("/addUser")
     public String addUser(){
-        return "addUser";
+        return "../../WEB-INF/view/admin/user/addUser";
     }
     /**
      * @Description 添加用户页面
@@ -139,6 +137,6 @@ public class UserLoginController {
      **/
     @RequestMapping("/editUser")
     public String editUser(){
-        return "editUser";
+        return "../../WEB-INF/view/admin/user/editUser";
     }
 }

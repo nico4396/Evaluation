@@ -13,34 +13,20 @@ public class Student {
     private String birthday;//出生年月
     private String place;//籍贯
     private String marry;//婚否
-    private Integer tel;//电话
-    private String idCard;//身份证
+    private String tel;//电话
+    private String idcard;//身份证
     private String school;//毕业学校
     private String major;//专业
     private String notes;//备注
     private Integer jid;//职务编号
-    private Integer classId;//班级编号
+    private Integer classid;//班级编号
+    private String classname;//班级
+    //private String jname;//职工位
 
     public Student() {
     }
 
-    public Student(String sname, String sex, String nation, String birthday, String place, String marry, Integer tel, String idCard, String school, String major, String notes, Integer jid, Integer classId) {
-        this.sname = sname;
-        this.sex = sex;
-        this.nation = nation;
-        this.birthday = birthday;
-        this.place = place;
-        this.marry = marry;
-        this.tel = tel;
-        this.idCard = idCard;
-        this.school = school;
-        this.major = major;
-        this.notes = notes;
-        this.jid = jid;
-        this.classId = classId;
-    }
-
-    public Student(Integer sid, String sname, String sex, String nation, String birthday, String place, String marry, Integer tel, String idCard, String school, String major, String notes, Integer jid, Integer classId) {
+    public Student(Integer sid, String sname, String sex, String nation, String birthday, String place, String marry, String tel, String idcard, String school, String major, String notes, Integer jid, Integer classid, String classname) {
         this.sid = sid;
         this.sname = sname;
         this.sex = sex;
@@ -49,13 +35,43 @@ public class Student {
         this.place = place;
         this.marry = marry;
         this.tel = tel;
-        this.idCard = idCard;
+        this.idcard = idcard;
         this.school = school;
         this.major = major;
         this.notes = notes;
         this.jid = jid;
-        this.classId = classId;
+        this.classid = classid;
+        this.classname = classname;
+        //this.jname = jname;
     }
+
+    public Student(String sname, String sex, String nation, String birthday, String place, String marry, String tel, String idcard, String school, String major, String notes, Integer jid, Integer classid, String classname) {
+        this.sname = sname;
+        this.sex = sex;
+        this.nation = nation;
+        this.birthday = birthday;
+        this.place = place;
+        this.marry = marry;
+        this.tel = tel;
+        this.idcard = idcard;
+        this.school = school;
+        this.major = major;
+        this.notes = notes;
+        this.jid = jid;
+        this.classid = classid;
+        this.classname = classname;
+        //this.jname = jname;
+    }
+
+    public String getClassname() {
+        return classname;
+    }
+
+    public void setClassname(String classname) {
+        this.classname = classname;
+    }
+
+
 
     public Integer getSid() {
         return sid;
@@ -113,20 +129,13 @@ public class Student {
         this.marry = marry;
     }
 
-    public Integer getTel() {
+
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(Integer tel) {
+    public void setTel(String tel) {
         this.tel = tel;
-    }
-
-    public String getIdCard() {
-        return idCard;
-    }
-
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
     }
 
     public String getSchool() {
@@ -161,11 +170,19 @@ public class Student {
         this.jid = jid;
     }
 
-    public Integer getClassId() {
-        return classId;
+    public String getIdcard() {
+        return idcard;
     }
 
-    public void setClassId(Integer classId) {
-        this.classId = classId;
+    public void setIdcard(String idcard) {
+        this.idcard = idcard;
+    }
+
+    public Integer getClassid() {
+        return classid;
+    }
+
+    public void setClassid(Integer classid) {
+        this.classid = classid;
     }
 }

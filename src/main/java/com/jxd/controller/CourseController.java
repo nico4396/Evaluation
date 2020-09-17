@@ -56,7 +56,7 @@ public class CourseController {
         return course;
     }
     /**
-     * @Description 删除用户
+     * @Description 删除科目
      * @params [id]
      * @return java.lang.String
      **/
@@ -116,7 +116,7 @@ public class CourseController {
     **/
     @RequestMapping("/courseList")
     public String courseList(){
-        return "courseList";
+        return "../../WEB-INF/view/admin/course/courseList";
     }
     /**
      * @Description 显示界面
@@ -125,10 +125,10 @@ public class CourseController {
      **/
     @RequestMapping("/addCourse")
     public String addCourse(){
-        return "addCourse";
+        return "../../WEB-INF/view/admin/course/addCourse";
     }
     @RequestMapping("/editCourse")
     public String editCourse(){
-        return "editCourse";
+        return "../../WEB-INF/view/admin/course/editCourse";
     }
 }

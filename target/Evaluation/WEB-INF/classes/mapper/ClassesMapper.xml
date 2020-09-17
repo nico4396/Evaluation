@@ -2,5 +2,48 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace目前可以自定义要唯一，将来面向接口编程时对应dao接口，一 个mapper相当于一个dao接口的实现类 -->
 <mapper namespace="com.jxd.dao.IClassesDao">
+    <select id="checkName" resultType="Classes">
+        select classid from classes
+        where classname=#{classname}
+    </select>
+    <select id="getAllTeaname" resultType="Teacher">
+        select teaid,teaname from teacher
+    </select>
+    <select id="getByClassid" resultType="Classes">
+        select classid,classname,teaid
+        from classes where classid=#{classid}
+    </select>
+    <update id="editClass">
+        update classes set classname=#{classname},teaid=#{teaid} where classid=#{classid}
+    </update>
+    <delete id="deleteClassByid">
+        delete from classes where classid=#{classid}
+    </delete>
+    <insert id="addClasses">
+        insert into classes(classname,teaid) values (#{classname},#{teaid})
+    </insert>
+    <select id="getAllClass" resultMap="Map">
+        select c.classid classid,c.classname classname,t.teaid teaid,t.teaname teaname
+        from classes c left join teacher t on c.teaid = t.teaid
+        <where>
+            <if test="classname != null and classname !=''">
+                classname like '%' #{classname} '%'
+            </if>
+        </where>
+    </select>
+    <select id="getAllClasses" resultMap="Map">
+        select c.classid classid,c.classname classname,t.teaid teaid,t.teaname teaname
+        from classes c left join teacher t on c.teaid = t.teaid
+        <where>
+            <if test="classname != null and classname !=''">
+                classname like '%' #{classname} '%'
+            </if>
+        </where>
+        limit #{page},#{limit}
+    </select>
+    <resultMap id="Map" type="Classes">
+        <id column="classid" property="classid"></id>
+        <result column="classname" property="classname"></result>
+    </resultMap>
 
 </mapper>

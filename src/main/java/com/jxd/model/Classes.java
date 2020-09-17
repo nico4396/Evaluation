@@ -6,34 +6,56 @@ package com.jxd.model;
  * @Date 2020.09.12 14:22
  */
 public class Classes {
-    private Integer classId;//班级编号
-    private String className;//班级名称
+    private Integer classid;//班级编号
+    private String classname;//班级名称
+    private Integer teaid;//教师编号
+    private String teaname;//教师姓名
 
     public Classes() {
     }
 
-    public Classes(String className) {
-        this.className = className;
+    public Classes(Integer classid, String classname, Integer teaid, String teaname) {
+        this.classid = classid;
+        this.classname = classname;
+        this.teaid = teaid;
+        this.teaname = teaname;
     }
 
-    public Classes(Integer classId, String className) {
-        this.classId = classId;
-        this.className = className;
+    public Classes(String classname, Integer teaid, String teaname) {
+        this.classname = classname;
+        this.teaid = teaid;
+        this.teaname = teaname;
     }
 
-    public Integer getClassId() {
-        return classId;
+    public String getTeaname() {
+        return teaname;
     }
 
-    public void setClassId(Integer classId) {
-        this.classId = classId;
+    public void setTeaname(String teaname) {
+        this.teaname = teaname;
     }
 
-    public String getClassName() {
-        return className;
+    public Integer getClassid() {
+        return classid;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setClassid(Integer classid) {
+        this.classid = classid;
+    }
+
+    public String getClassname() {
+        return classname;
+    }
+
+    public void setClassname(String classname) {
+        this.classname = classname;
+    }
+
+    public Integer getTeaid() {
+        return teaid;
+    }
+
+    public void setTeaid(Integer teaid) {
+        this.teaid = teaid;
     }
 }

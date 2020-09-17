@@ -1,10 +1,7 @@
 package com.jxd.controller;
 
-import com.jxd.dao.ICourseDao;
 import com.jxd.dao.IEvaluateDao;
-import com.jxd.model.Course;
 import com.jxd.model.Evaluate;
-import com.jxd.service.ICourseService;
 import com.jxd.service.IEvaluateService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -118,7 +115,7 @@ public class EvaluateController {
      **/
     @RequestMapping("/workTypeList")
     public String workTypeList(){
-        return "workTypeList";
+        return "../../WEB-INF/view/admin/workType/workTypeList";
     }
     /**
      * @Description 显示界面
@@ -127,10 +124,10 @@ public class EvaluateController {
      **/
     @RequestMapping("/addWorkType")
     public String addWorkType(){
-        return "addWorkType";
+        return "../../WEB-INF/view/admin/workType/addWorkType";
     }
     @RequestMapping("/editWorkType")
     public String editWorkType(){
-        return "editWorkType";
+        return "../../WEB-INF/view/admin/workType/editWorkType";
     }
 }
