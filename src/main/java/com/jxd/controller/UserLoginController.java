@@ -7,12 +7,10 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -29,10 +27,10 @@ public class UserLoginController {
     IUserLoginService userLoginService;
 
     /**
-    * @Description  编辑用户信息
-    * @params [uid, uname, pwd, power]
-    * @return java.lang.String
-    **/
+     * @Description  编辑用户信息
+     * @params [uid, uname, pwd, power]
+     * @return java.lang.String
+     **/
     @RequestMapping(value = "/editUserLogin",produces = "text/html;charset=utf-8")
     @ResponseBody
     public String editUserLogin(UserLogin userLogin){
@@ -46,10 +44,10 @@ public class UserLoginController {
     }
 
     /**
-    * @Description  根据uid获取用户信息
-    * @params [uid, model]
-    * @return com.jxd.model.UserLogin
-    **/
+     * @Description  根据uid获取用户信息
+     * @params [uid, model]
+     * @return com.jxd.model.UserLogin
+     **/
     @RequestMapping(value = "/getByUid",produces = "application/json;charset=UTF-8")
     @ResponseBody
     public UserLogin getByUid(Integer uid, Model model){
@@ -59,10 +57,10 @@ public class UserLoginController {
     }
 
     /**
-    * @Description  添加用户
-    * @params [userLogin]
-    * @return java.lang.String
-    **/
+     * @Description  添加用户
+     * @params [userLogin]
+     * @return java.lang.String
+     **/
     @RequestMapping(value = "/addUserLogin",produces = "text/html;charset=utf-8")
     @ResponseBody
     public String addUserLogin(UserLogin userLogin){
@@ -75,10 +73,10 @@ public class UserLoginController {
     }
 
     /**
-    * @Description 删除用户
-    * @params [id]
-    * @return java.lang.String
-    **/
+     * @Description 删除用户
+     * @params [id]
+     * @return java.lang.String
+     **/
     @RequestMapping("/deleteUserByid")
     @ResponseBody
     public String deleteUserByid(Integer uid) {
@@ -91,10 +89,10 @@ public class UserLoginController {
 
     }
     /**
-    * @Description 显示所有用户
-    * @params []
-    * @return java.util.List<com.jxd.model.UserLogin>
-    **/
+     * @Description 显示所有用户
+     * @params []
+     * @return java.util.List<com.jxd.model.UserLogin>
+     **/
     @RequestMapping(value = "/getAllUser",produces = "application/json;charset=utf-8")
     @ResponseBody
     public JSONObject getAllUser(Integer limit, Integer page, @Param("uname") String uname) {
@@ -114,13 +112,13 @@ public class UserLoginController {
     }
 
     /**
-    * @Description 用户页面
-    * @params []
-    * @return java.lang.String
-    **/
+     * @Description 用户页面
+     * @params []
+     * @return java.lang.String
+     **/
     @RequestMapping("/userlogin")
     public String student() {
-        return "userlogin";
+        return "../../WEB-INF/view/admin/user/userlogin";
     }
 
     /**
@@ -130,7 +128,7 @@ public class UserLoginController {
      **/
     @RequestMapping("/addUser")
     public String addUser(){
-        return "addUser";
+        return "../../WEB-INF/view/admin/user/addUser";
     }
     /**
      * @Description 添加用户页面
@@ -139,6 +137,6 @@ public class UserLoginController {
      **/
     @RequestMapping("/editUser")
     public String editUser(){
-        return "editUser";
+        return "../../WEB-INF/view/admin/user/editUser";
     }
 }

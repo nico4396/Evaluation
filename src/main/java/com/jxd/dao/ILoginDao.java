@@ -13,9 +13,9 @@ public interface ILoginDao {
      **/
     List<UserLogin> findUser(UserLogin userLogin);
     /**
-    * @Description  重置密码
-    * @params [newpwd1, newpwd2, uname]
-    * @return boolean
-    **/
+     * @Description  重置密码
+     * @params [newpwd1, newpwd2, uname]
+     * @return boolean
+     **/
     boolean editPwd(@Param("pwd") String newpwd1, String newpwd2, String uname);
 }

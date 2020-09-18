@@ -2,5 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace目前可以自定义要唯一，将来面向接口编程时对应dao接口，一 个mapper相当于一个dao接口的实现类 -->
 <mapper namespace="com.jxd.dao.IJobDao">
-
+    <update id="editJob">
+        update job set jname=#{jname},deptname=#{deptname} where jid=#{jid}
+    </update>
+    <select id="getByJid" resultType="Job">
+        select jid,jname,deptName
+        from job where jid=#{jid}
+    </select>
+    <delete id="deleteJobByid">
+        delete from job where jid=#{jid}
+    </delete>
+    <insert id="addJobs">
+        insert into job(jname,deptname) values (#{jname},#{deptname})
+    </insert>
+    <select id="getAllJob" resultType="Job">
+        select jid,jname,deptname from job
+        <where>
+            <if test="jname != null and jname !=''">
+                jname like '%' #{jname} '%'
+            </if>
+            <if test="deptname != null and deptname !=''">
+                and deptname like '%' #{deptname} '%'
+            </if>
+        </where>
+    </select>
+    <select id="getAllJobs" resultType="Job">
+        select jid,jname,deptname from job
+        <where>
+            <if test="jname != null and jname !=''">
+                jname like '%' #{jname} '%'
+            </if>
+            <if test="deptname != null and deptname !=''">
+                and deptname like '%' #{deptname} '%'
+            </if>
+        </where>
+        limit #{page},#{limit}
+    </select>
 </mapper>

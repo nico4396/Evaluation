@@ -39,7 +39,7 @@ public class StudentListController {
     }
     @RequestMapping("/stuList")
     public String stuList(Model model){
-        List<Classes> clist = classesService.getAllClass();
+        List<Classes> clist = classesService.getAllClassList();
         model.addAttribute("clist",clist);
        return  "stuList";
     }

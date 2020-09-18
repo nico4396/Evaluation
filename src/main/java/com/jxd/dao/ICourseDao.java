@@ -26,10 +26,10 @@ public interface ICourseDao {
     List<Course> getAllCourses(Integer limit, Integer page,@Param("couname") String couname);
     List<Course> getAllCourse(@Param("couname") String couname);
     /**
-    * @Description  添加科目
-    * @params [course]
-    * @return boolean
-    **/
+     * @Description  添加科目
+     * @params [course]
+     * @return boolean
+     **/
     boolean addCourses(Course course);
     /**
      * @Description  删除学科
