@@ -2,5 +2,76 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace目前可以自定义要唯一，将来面向接口编程时对应dao接口，一 个mapper相当于一个dao接口的实现类 -->
 <mapper namespace="com.jxd.dao.IStudentDao">
-
+    <select id="checkMark" resultType="Boolean">
+        select score from schooleva where sid=#{sid}
+    </select>
+    <update id="addJobToStudent">
+        update student set jid=#{jid} where sid=#{sid}
+    </update>
+    <select id="checkClassname" resultType="Boolean">
+        select jid from student
+        where classid=#{classid}
+    </select>
+    <select id="checkStudent" resultType="Boolean">
+        select jid from student
+        where sid=#{sid}
+    </select>
+    <select id="getAllClassname" resultType="Classes">
+        select classid,classname from classes
+    </select>
+    <select id="getBySid" resultType="Student">
+        select sid,sname,sex,nation,birthday,place,marry,tel,idcard,school,major,notes,jid,classid
+        from student where sid=#{sid}
+    </select>
+    <update id="editStudent">
+        update student set sname=#{sname},sex=#{sex},nation=#{nation},birthday=#{birthday},place=#{place},marry=#{marry},tel=#{tel},idcard=#{idcard},school=#{school},major=#{major},notes=#{notes} where sid=#{sid}
+    </update>
+    <delete id="deleteStudentByid">
+        delete from student where sid=#{sid}
+    </delete>
+    <insert id="addStudents">
+        insert into student(sname,sex,nation,birthday,place,marry,tel,idcard,school,major,notes,classid)
+        values (#{sname},#{sex},#{nation},#{birthday},#{place},#{marry},#{tel},#{idcard},#{school},#{major},#{notes},#{classid})
+    </insert>
+    <select id="getAllStudentAmd" resultType="Student">
+        select s.sid sid,s.sname sname,s.sex sex,s.nation nation,s.birthday birthday,s.place place,s.marry marry,s.tel tel,s.idcard idcard,s.school school,s.major major,s.notes notes,s.jid jid,c.classid classid,c.classname classname
+        from student s left join classes c on s.classid = c.classid
+        <where>
+            <if test="sname != null and sname !=''">
+                sname like '%' #{sname} '%'
+            </if>
+            <if test="classname != null and classname !=''">
+                and classname like '%' #{classname} '%'
+            </if>
+        </where>
+    </select>
+    <select id="getAllStudentsAmd" resultType="Student">
+        select s.sid sid,s.sname sname,s.sex sex,s.nation nation,s.birthday birthday,s.place place,s.marry marry,s.tel tel,s.idcard idcard,s.school school,s.major major,s.notes notes,s.jid jid,c.classid classid,c.classname classname
+        from student s left join classes c on s.classid = c.classid
+        <where>
+            <if test="sname != null and sname !=''">
+                sname like '%' #{sname} '%'
+            </if>
+            <if test="classname != null and classname !=''">
+                and classname like '%' #{classname} '%'
+            </if>
+        </where>
+        limit #{page},#{limit}
+    </select>
+    <!-- <resultMap id="StudentMap" type="Student">
+         <id column="sid" property="sid"></id>
+         <result column="sname" property="sname"></result>
+         <result column="sex" property="sex"></result>
+         <result column="nation" property="nation"></result>
+         <result column="birthday" property="birthday"></result>
+         <result column="place" property="place"></result>
+         <result column="marry" property="marry"></result>
+         <result column="tel" property="tel"></result>
+         <result column="idcard" property="idcard"></result>
+         <result column="school" property="school"></result>
+         <result column="major" property="major"></result>
+         <result column="notes" property="notes"></result>
+         <result column="job" property="job"></result>
+     </resultMap>
+ -->
 </mapper>

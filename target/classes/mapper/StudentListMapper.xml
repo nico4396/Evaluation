@@ -38,4 +38,7 @@
         select s.sid,cl.classname from student s,classes cl
         where s.sid = #{sid} and s.classid = cl.classid
     </select>
+    <update id="uploadImg">
+        update student set imgname = #{imgName} where sid = #{sid}
+    </update>
 </mapper>

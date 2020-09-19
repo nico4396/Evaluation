@@ -43,4 +43,12 @@ public interface IStudentListService {
      * @Description TODO 根据学号获取图片
      */
     String getImg(Integer sid);
+
+    /**
+     * @param sid
+     * @param imgName
+     * @return boolean
+     * @Description TODO 按学号插入图片
+     */
+    boolean uploadImg(@Param("sid") Integer sid, @Param("imgName") String imgName);
 }

@@ -22,13 +22,13 @@ public interface IStudentListDao {
      * @return java.util.List<com.jxd.model.Student>
      * @Description TODO 根据班级号和学生姓名模糊查找学生
      */
-    List<Map<String,Object>> getStuByClass(@Param("limit") Integer limit, @Param("page") Integer page, @Param("classid") Integer classId,@Param("sname") String sname);
+    List<Map<String, Object>> getStuByClass(@Param("limit") Integer limit, @Param("page") Integer page, @Param("classid") Integer classId, @Param("sname") String sname);
 
     /**
      * @return java.util.List<com.jxd.model.Student>
      * @Description TODO  获取所有学生
      */
-    List<Map<String,Object>> getAllStu();
+    List<Map<String, Object>> getAllStu();
 
     /**
      * @param sid
@@ -43,4 +43,12 @@ public interface IStudentListDao {
      * @Description TODO 根据学号获取图片
      */
     String getImg(Integer sid);
+
+    /**
+     * @param sid
+     * @param imgName
+     * @return boolean
+     * @Description TODO 按学号插入图片
+     */
+    boolean uploadImg(@Param("sid") Integer sid, @Param("imgName") String imgName);
 }

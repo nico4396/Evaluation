@@ -43,5 +43,10 @@ public class StudentListServiceImpl implements IStudentListService {
         return iStudentListDao.getImg(sid);
     }
 
+    @Override
+    public boolean uploadImg(Integer sid, String imgName) {
+        return iStudentListDao.uploadImg(sid,imgName);
+    }
+
 
 }

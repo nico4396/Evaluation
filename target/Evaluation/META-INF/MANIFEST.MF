@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Created-By: IntelliJ IDEA
-Built-By: Lancer
-Build-Jdk: 1.8.0_231
-Implementation-Title: Evaluation Maven Webapp
-Implementation-Version: 1.0-SNAPSHOT
-Implementation-Vendor-Id: com.jxd
-Main-Class: ${start-class}
-

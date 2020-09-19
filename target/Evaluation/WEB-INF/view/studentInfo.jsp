@@ -136,7 +136,8 @@
     </div>
 </div>
 <script>
-    layui.use(['table', 'layer'], function () {
+    layui.use(['table', 'layer','element'], function () {
+        var element = layui.element;
         var table = layui.table;
         var layer = layui.layer;
         var $ = layui.jquery;
