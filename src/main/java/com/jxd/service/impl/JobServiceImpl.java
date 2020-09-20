@@ -20,6 +20,11 @@ public class JobServiceImpl implements IJobService {
     IJobDao jobDao;
 
     @Override
+    public boolean checkjobToStudent(Integer jid) {
+        return jobDao.checkjobToStudent(jid);
+    }
+
+    @Override
     public boolean editJob(Integer jid,String jname,@Param("deptname") String deptName) {
         return jobDao.editJob(jid, jname, deptName);
     }

@@ -36,5 +36,5 @@ public interface IUserLoginDao {
      * @params [student]
      * @return boolean
      **/
-    boolean editUserLogin(UserLogin userLogin);
+    boolean editUserLogin(@Param("uid") Integer uid,@Param("uname") String uname,@Param("pwd") String pwd,@Param("power") String power);
 }

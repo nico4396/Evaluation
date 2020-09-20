@@ -99,7 +99,7 @@
                                     setTimeout('closeadd()',1000)
                                 },
                                 error:function (data) {
-                                    layer.msg("该学生未完成课程，不能入职")
+                                    layer.msg("执行失败")
                                 }
                             })
                         }else {
@@ -109,7 +109,7 @@
                         setTimeout('closeadd()',1000)
                     },
                     error:function (data) {
-                        layer.msg("该学生未完成课程，不能入职")
+                        layer.msg("执行失败")
                     }
                 })
             }

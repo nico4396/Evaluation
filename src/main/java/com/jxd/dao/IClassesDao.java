@@ -8,6 +8,12 @@ import java.util.List;
 
 public interface IClassesDao {
     /**
+     * @Description 判断班级是否有科目分配
+     * @params [tid]
+     * @return boolean
+     **/
+    boolean checkClassByid(Integer classid);
+    /**
      * @Description 检查名字是否可用
      * @params [classname] 输入的姓名
      * @return boolean

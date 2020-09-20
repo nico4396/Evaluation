@@ -30,7 +30,7 @@
                 <div style="margin-right: 20px" align="right"><span>当前用户：</span><span style="color: #ffffff">${sessionScope.uname}</span></div>
                 <dl class="layui-nav-child">
                     <dd><a href="repwd">修改密码</a></dd>
-                    <dd><a href="login">退出账户</a></dd>
+                    <dd><a href="logout">退出账户</a></dd>
                 </dl>
             </li>
         </ul>
@@ -52,7 +52,7 @@
                         <dd><a href="jobList">部门管理</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="login">班级选课管理</a></li>
+                <li class="layui-nav-item"><a href="selectCourseList">班级选课管理</a></li>
                 <li class="layui-nav-item"><a href="studentList">学生基本信息管理</a></li>
             </ul>
         </div>
@@ -60,7 +60,7 @@
 
     <div style="display: flex;justify-content: center">
         <div class="layui-form">
-            <h1 align="center" style="margin: 30px 0px 20px 0px">科目添加</h1>
+            <h1 align="center" style="margin: 30px 0px 20px 0px">老师添加</h1>
             <div class="layui-form-item">
                 <label class="layui-form-label">教师名</label>
                 <div class="layui-input-inline">

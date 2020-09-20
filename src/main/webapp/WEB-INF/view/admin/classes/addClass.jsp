@@ -30,7 +30,7 @@
                 <div style="margin-right: 20px" align="right"><span>当前用户：</span><span style="color: #ffffff">${sessionScope.uname}</span></div>
                 <dl class="layui-nav-child">
                     <dd><a href="repwd">修改密码</a></dd>
-                    <dd><a href="login">退出账户</a></dd>
+                    <dd><a href="logout">退出账户</a></dd>
                 </dl>
             </li>
         </ul>
@@ -52,7 +52,7 @@
                         <dd><a href="jobList">部门管理</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="login">班级选课管理</a></li>
+                <li class="layui-nav-item"><a href="selectCourseList">班级选课管理</a></li>
                 <li class="layui-nav-item"><a href="studentList">学生基本信息管理</a></li>
             </ul>
         </div>
@@ -100,7 +100,7 @@
         layer = layui.layer;
         var form = layui.form;        //点击提交按钮
         //姓名输入框失去焦点
-        $("#classname").blur(function () {
+        $("#addClassbtn").click(function () {
             $.ajax({
                 url:"checkName",//要请求的后台资源
                 type:"get",//ajax请求类型
@@ -109,11 +109,48 @@
                 },
                 dataType:"text",//服务器响应的数据类型
                 success:function (data) {
-                    layer.msg(data);
-                    setTimeout('closeadd()',1000)
+                    if (data==='名字已被占用'){
+                        layer.msg(data);
+                        setTimeout('closeadd()',1000)
+                    }else {
+                        $.ajax({
+                            url:"addClasses",
+                            type:"post",
+                            data:{
+                                teaid:$("#teaid").val(),
+                                classname:$("#classname").val(),
+                            },
+                            dataType:"text",//默认值为text
+                            success:function (data) {
+
+                                layer.msg(data);
+                                setTimeout('closeadd()',1000)
+                            },
+                            error:function (data) {
+                                layer.msg("执行失败")
+                            }
+                        })
+                    }
+
                 },
                 error:function (data) {
-                    /*layer.msg("执行失败")*/
+                    $.ajax({
+                        url:"addClasses",
+                        type:"post",
+                        data:{
+                            teaid:$("#teaid").val(),
+                            classname:$("#classname").val(),
+                        },
+                        dataType:"text",//默认值为text
+                        success:function (data) {
+
+                            layer.msg(data);
+                            setTimeout('closeadd()',1000)
+                        },
+                        error:function (data) {
+                            layer.msg("执行失败")
+                        }
+                    })
                 }
             });
         });
@@ -132,7 +169,7 @@
                 form.render()
             }
         });
-        $("#addClassbtn").click(function () {
+       /* $("#addClassbtn").click(function () {
             $.ajax({
                 url:"addClasses",
                 type:"post",
@@ -150,7 +187,7 @@
                     layer.msg("执行失败")
                 }
             })
-        })
+        })*/
 
         //执行一个laydate实例
         laydate.render({

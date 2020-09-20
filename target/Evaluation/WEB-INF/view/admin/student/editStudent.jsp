@@ -33,7 +33,7 @@
                 <div style="margin-right: 20px" align="right"><span>当前用户：</span><span style="color: #ffffff">${sessionScope.uname}</span></div>
                 <dl class="layui-nav-child">
                     <dd><a href="repwd">修改密码</a></dd>
-                    <dd><a href="login">退出账户</a></dd>
+                    <dd><a href="logout">退出账户</a></dd>
                 </dl>
             </li>
         </ul>
@@ -55,7 +55,7 @@
                         <dd><a href="jobList">部门管理</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="login">班级选课管理</a></li>
+                <li class="layui-nav-item"><a href="selectCourseList">班级选课管理</a></li>
                 <li class="layui-nav-item"><a href="studentList">学生基本信息管理</a></li>
             </ul>
         </div>
@@ -93,12 +93,6 @@
                     <input id="place" type="text" name="place" required  lay-verify="required" value="${sessionScope.student.place}" placeholder="请输入籍贯" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <%-- <div class="layui-form-item">
-                 <label class="layui-form-label">籍贯</label>
-                 <div class="layui-input-inline">
-                     <input id="place" type="text" name="place" required  lay-verify="required" placeholder="请输入籍贯" autocomplete="off" class="layui-input">
-                 </div>
-             </div>--%>
             <div class="layui-form-item">
                 <label class="layui-form-label">婚否</label>
                 <div class="layui-input-block">
@@ -130,25 +124,12 @@
                     <input id="major" type="text" value="${sessionScope.student.major}" name="major" required  lay-verify="required" placeholder="请输入专业" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <%--<div class="layui-form-item">
-                <label class="layui-form-label">专业</label>
-                <div class="layui-input-inline">
-                    <input id="major" type="text" name="major" required  lay-verify="required" placeholder="请输入专业" autocomplete="off" class="layui-input">
-                </div>
-            </div>--%>
             <div class="layui-form-item">
                 <label class="layui-form-label">备注</label>
                 <div class="layui-input-inline">
                     <input id="notes" type="text" value="${sessionScope.student.notes}" name="notes" required  lay-verify="required" placeholder="简写备注" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <%--<div class="layui-form-item">
-                <label class="layui-form-label">班级名：</label>
-                <div class="layui-input-block">
-                    <select id="classid" style="float: left" name="classid">
-                    </select>
-                </div>
-            </div>--%>
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn" lay-submit lay-filter="formDemo" type="submit" id="addBtn">入职</button>

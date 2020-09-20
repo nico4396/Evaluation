@@ -2,6 +2,7 @@ package com.jxd.controller;
 
 import com.jxd.dao.IStudentDao;
 import com.jxd.model.Classes;
+import com.jxd.model.SchoolLeva;
 import com.jxd.model.Student;
 import com.jxd.service.IStudentService;
 import net.sf.json.JSONArray;
@@ -32,8 +33,8 @@ public class StudentController {
     @RequestMapping(value = "/CheckMark",produces = "text/html;charset=utf-8")
     @ResponseBody
     public String CheckMark(@Param("sid") Integer sid){
-        boolean isCheck = studentDao.checkMark(sid);
-        if (isCheck){
+        SchoolLeva schoolLeva = studentDao.checkMark(sid);
+        if (schoolLeva !=null){
             return "可以入职";
         }else {
             return "不可以入职";

@@ -1,6 +1,7 @@
 package com.jxd.controller;
 
 import com.jxd.dao.ITeacherDao;
+import com.jxd.model.Classes;
 import com.jxd.model.Teacher;
 import com.jxd.service.ITeacherService;
 import net.sf.json.JSONArray;
@@ -27,6 +28,21 @@ public class TeacherController {
     ITeacherDao teacherDao;
     @Autowired
     ITeacherService teacherService;
+    /**
+     * @Description 判断老师是否带班级
+     * @params [tid]
+     * @return boolean
+     **/
+    @RequestMapping(value = "/checkClassToTeacher",produces = "text/html;charset=utf-8")
+    @ResponseBody
+    public String checkClassToTeacher(Integer teaid){
+        Classes classes = teacherService.checkClassToTeacher(teaid);
+        if (classes != null){
+            return "不能删除";
+        }else {
+            return "可以删除";
+        }
+    }
     /**
      * @Description  编辑用户信息
      * @params [uid, uname, pwd, power]
@@ -62,7 +78,7 @@ public class TeacherController {
     @RequestMapping("/deleteTeacherByid")
     @ResponseBody
     public String deleteTeacherByid(Integer teaid) {
-        boolean isdelete = teacherService.deleteTeacherByid(teaid);
+        boolean isdelete = teacherDao.deleteTeacherByid(teaid);
         if (isdelete){
             return  "删除成功";
         }else {

@@ -1,5 +1,6 @@
 package com.jxd.dao;
 
+import com.jxd.model.Classes;
 import com.jxd.model.Teacher;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,6 +13,12 @@ public interface ITeacherDao {
      * @return com.jxd.model.UserLogin
      **/
     Teacher getByTeaid(Integer teaid);
+    /**
+    * @Description 判断老师是否带班级
+    * @params [tid]
+    * @return boolean
+    **/
+    Classes checkClassToTeacher(Integer teaid);
     /**
      * @Description 编辑信息
      * @params [student]

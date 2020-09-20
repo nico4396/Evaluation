@@ -7,6 +7,12 @@ import java.util.List;
 
 public interface IJobDao {
     /**
+     * @Description 判断学生是否入职
+     * @params [jid]
+     * @return boolean
+     **/
+    boolean checkjobToStudent(Integer jid);
+    /**
      * @Description 编辑信息
      * @params [student]
      * @return boolean

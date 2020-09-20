@@ -1,11 +1,18 @@
 package com.jxd.service;
 
+import com.jxd.model.Classes;
 import com.jxd.model.Teacher;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface ITeacherService {
+    /**
+     * @Description 判断老师是否带班级
+     * @params [tid]
+     * @return boolean
+     **/
+    Classes checkClassToTeacher(Integer teaid);
     /**
      * @Description 根据用户id找信息
      * @params [uid]

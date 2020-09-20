@@ -43,7 +43,7 @@ public class UserLoginServiceImpl implements IUserLoginService {
     }
 
     @Override
-    public boolean editUserLogin(UserLogin userLogin) {
-        return userLoginDao.editUserLogin(userLogin);
+    public boolean editUserLogin(Integer uid,String uname,String pwd,String power) {
+        return userLoginDao.editUserLogin(uid, uname,pwd, power);
     }
 }

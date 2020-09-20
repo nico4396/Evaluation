@@ -38,5 +38,5 @@ public interface IUserLoginService {
     * @params [student]
     * @return boolean
     **/
-    boolean editUserLogin(UserLogin userLogin);
+    boolean editUserLogin(Integer uid,String uname,String pwd,String power);
 }

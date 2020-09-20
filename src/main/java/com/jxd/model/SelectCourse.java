@@ -8,20 +8,41 @@ package com.jxd.model;
 public class SelectCourse {
     private Integer id;//选课编号
     private String couname;//课程名称
-    private Integer classId;//班级编号
+    private Integer classid;//班级编号
+    private String classname;//班级名称
 
     public SelectCourse() {
     }
 
-    public SelectCourse(Integer id, String couname, Integer classId) {
-        this.id = id;
+    public SelectCourse(String couname, Integer classid) {
         this.couname = couname;
-        this.classId = classId;
+        this.classid = classid;
     }
 
-    public SelectCourse(String couname, Integer classId) {
+    public SelectCourse(String couname, Integer classid, String classname) {
         this.couname = couname;
-        this.classId = classId;
+        this.classid = classid;
+        this.classname = classname;
+    }
+
+    public SelectCourse(Integer id, String couname, Integer classid, String classname) {
+        this.id = id;
+        this.couname = couname;
+        this.classid = classid;
+        this.classname = classname;
+    }
+
+    public SelectCourse(Integer id, Integer classid) {
+        this.id = id;
+        this.classid = classid;
+    }
+
+    public String getClassname() {
+        return classname;
+    }
+
+    public void setClassname(String classname) {
+        this.classname = classname;
     }
 
     public Integer getId() {
@@ -40,11 +61,11 @@ public class SelectCourse {
         this.couname = couname;
     }
 
-    public Integer getClassId() {
-        return classId;
+    public Integer getClassid() {
+        return classid;
     }
 
-    public void setClassId(Integer classId) {
-        this.classId = classId;
+    public void setClassid(Integer classid) {
+        this.classid = classid;
     }
 }

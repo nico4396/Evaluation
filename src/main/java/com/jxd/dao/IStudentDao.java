@@ -1,6 +1,7 @@
 package com.jxd.dao;
 
 import com.jxd.model.Classes;
+import com.jxd.model.SchoolLeva;
 import com.jxd.model.Student;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,7 +13,7 @@ public interface IStudentDao {
     * @params [sid]
     * @return boolean
     **/
-    boolean checkMark(@Param("sid") Integer sid);
+    SchoolLeva checkMark(@Param("sid") Integer sid);
     /**
      * @Description 检查
      * @params [classname] 输入的姓名

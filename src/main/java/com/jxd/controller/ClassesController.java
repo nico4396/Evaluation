@@ -28,7 +28,21 @@ public class ClassesController {
     IClassesDao classesDao;
     @Autowired
     IClassesService classesService;
-
+    /**
+     * @Description 判断班级是否有科目分配
+     * @params [id]
+     * @return boolean
+     **/
+    @RequestMapping(value = "/checkClassByid",produces = "text/html;charset=utf-8")
+    @ResponseBody
+    public String checkClassByid(Integer classid){
+        boolean isCheck = classesService.checkClassByid(classid);
+        if (isCheck){
+            return "不能删除";
+        }else {
+            return "可以删除";
+        }
+    }
     @RequestMapping(value = "/checkName",produces = "text/html;charset=utf-8")
     @ResponseBody
     public String checkName(@Param("classname") String classname){

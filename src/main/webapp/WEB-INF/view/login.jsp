@@ -86,7 +86,13 @@
                     pwd:$("#pwd").val()
                 },
                 success:function (data) {
-                    location.href=""+data+"";
+                    if (data==='mindex'||data === 'teacher'||data ==='manager'){
+                        location.href=""+data+"";
+                    }else {
+                        alert("用户名密码错误，请重新登录")
+                        location.href=""+data+"";
+                    }
+
                 },
                 error:function (data) {
                     alert("执行失败");

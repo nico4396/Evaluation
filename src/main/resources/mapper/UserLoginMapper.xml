@@ -7,7 +7,7 @@
         from userlogin where uid=#{uid}
     </select>
     <update id="editUserLogin">
-        update userlogin set uname=#{uname},pwd=#{pwd},power={#power} where uid=#{uid}
+        update userlogin set uname=#{uname},pwd=#{pwd},power=#{power} where uid=#{uid}
     </update>
     <insert id="addUserLogin">
         insert into userlogin(uname,pwd,power) values (#{uname},#{pwd},#{power})

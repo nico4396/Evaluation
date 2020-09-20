@@ -12,7 +12,7 @@
 </head>
 <body>
 <%
-    session.removeAttribute("username");
+    session.removeAttribute("uname");
     response.sendRedirect("login");
 %>
 </body>

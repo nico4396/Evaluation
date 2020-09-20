@@ -2,5 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace目前可以自定义要唯一，将来面向接口编程时对应dao接口，一 个mapper相当于一个dao接口的实现类 -->
 <mapper namespace="com.jxd.dao.ISelectCourseDao">
+    <insert id="addByBatchCourse">
+        insert into selectcourse(couname,classid)
+        values
+            <foreach collection="list" item="selectcourse" separator=",">
+                (#{selectcourse.couname},#{selectcourse.classid})
+            </foreach>
 
+    </insert>
+    <delete id="deleteSCourseByid">
+        delete from selectcourse where id=#{id}
+    </delete>
+    <select id="getAllSelectCourse" resultType="SelectCourse">
+        select s.id id,s.couname couname,c.classid classid,c.classname classname
+        from selectcourse s left join classes c on s.classid = c.classid
+        <where>
+            <if test="couname != null and couname !=''">
+                couname like '%' #{couname} '%'
+            </if>
+            <if test="classname != null and classname !=''">
+                and classname like '%' #{classname} '%'
+            </if>
+        </where>
+    </select>
+    <select id="getAllSelectCourses" resultType="SelectCourse">
+        select s.id id,s.couname couname,c.classid classid,c.classname classname
+        from selectcourse s left join classes c on s.classid = c.classid
+        <where>
+            <if test="couname != null and couname !=''">
+                couname like '%' #{couname} '%'
+            </if>
+            <if test="classname != null and classname !=''">
+                and classname like '%' #{classname} '%'
+            </if>
+        </where>
+        limit #{page},#{limit}
+    </select>
 </mapper>

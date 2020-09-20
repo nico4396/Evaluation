@@ -42,6 +42,11 @@
         <div class="layui-form-item">
             <label class="layui-form-label">权限</label>
             <div class="layui-input-block">
+               <%-- <select name="power">
+                    <option value="管理员">管理员</option>
+                    <option value="教师">教师</option>
+                    <option value="项目经理">项目经理</option>
+                </select>--%>
                 <c:if test="${sessionScope.userlogin.power=='管理员'}">
                     <input type="radio" name="power" value="管理员" title="管理员" checked="">
                     <input type="radio" name="power" value="教师" title="教师">
@@ -62,7 +67,6 @@
         <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn" id="update" lay-filter="demo1">立即提交</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
         <div class="layui-footer">
@@ -82,7 +86,7 @@
         $("#update").click(function () {
             $.ajax({
                 url: "editUserLogin",
-                type: "post",
+                type: "get",
                 data: {
                     uid:$("#uid").val(),
                     uname: $("#uname").val(),

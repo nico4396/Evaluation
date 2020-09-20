@@ -33,7 +33,7 @@
                 <div style="margin-right: 20px" align="right"><span>当前用户：</span><span style="color: #ffffff">${sessionScope.uname}</span></div>
                 <dl class="layui-nav-child">
                     <dd><a href="repwd">修改密码</a></dd>
-                    <dd><a href="login">退出账户</a></dd>
+                    <dd><a href="logout">退出账户</a></dd>
                 </dl>
             </li>
         </ul>
@@ -55,7 +55,7 @@
                         <dd><a href="jobList">部门管理</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="login">班级选课管理</a></li>
+                <li class="layui-nav-item"><a href="selectCourseList">班级选课管理</a></li>
                 <li class="layui-nav-item"><a href="studentList">学生基本信息管理</a></li>
             </ul>
         </div>
@@ -142,16 +142,36 @@
                         var date = checkStatus.data;
                             layer.confirm('确定要删除吗？','删除命令',function () {
                                 $.ajax({
-                                    url:"deleteTeacherByid",
+                                    url:"checkClassToTeacher",
                                     type:"post",
                                     data:{
                                         teaid:teaid
                                     },
                                     success:function (data) {
-                                        if (data){
-                                            layer.msg("删除成功")
+                                        if (data==="可以删除"){
+                                            $.ajax({
+                                                url:"deleteTeacherByid",
+                                                type:"post",
+                                                data:{
+                                                    teaid:teaid
+                                                },
+                                                success:function (data) {
+                                                    if (data){
+                                                        layer.msg("删除成功")
+                                                    }else {
+                                                        layer.msg("删除失败")
+                                                    }
+                                                    //重新加载表格
+                                                    table.reload("demo",function () {
+                                                        url:"getAllTeacher"
+                                                    })
+                                                },
+                                                error:function (data) {
+                                                    layer.msg("该老师存在班级授课，不能删除")
+                                                }
+                                            })
                                         }else {
-                                            layer.msg("删除失败")
+                                            layer.msg("该老师存在班级授课，不能删除")
                                         }
                                         //重新加载表格
                                         table.reload("demo",function () {
@@ -159,7 +179,7 @@
                                         })
                                     },
                                     error:function (data) {
-                                        layer.msg("执行失败")
+                                        layer.msg("执行失败2")
                                     }
                                 })
                             })

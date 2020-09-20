@@ -2,6 +2,7 @@ package com.jxd.service.impl;
 
 import com.jxd.dao.IStudentDao;
 import com.jxd.model.Classes;
+import com.jxd.model.SchoolLeva;
 import com.jxd.model.Student;
 import com.jxd.service.IStudentService;
 import org.apache.ibatis.annotations.Param;
@@ -21,7 +22,7 @@ public class StudentServiceImpl implements IStudentService {
     IStudentDao studentDao;
 
     @Override
-    public boolean checkMark(Integer sid) {
+    public SchoolLeva checkMark(Integer sid) {
         return studentDao.checkMark(sid);
     }
 

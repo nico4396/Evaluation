@@ -1,6 +1,7 @@
 package com.jxd.service.impl;
 
 import com.jxd.dao.ITeacherDao;
+import com.jxd.model.Classes;
 import com.jxd.model.Teacher;
 import com.jxd.service.ITeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,12 @@ import java.util.List;
 public class TeacherServiceImpl implements ITeacherService {
     @Autowired
     ITeacherDao teacherDao;
+
+    @Override
+    public Classes checkClassToTeacher(Integer tid) {
+        return teacherDao.checkClassToTeacher(tid);
+    }
+
     @Override
     public Teacher getByTeaid(Integer teaid) {
         return teacherDao.getByTeaid(teaid);

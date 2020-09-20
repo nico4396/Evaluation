@@ -30,7 +30,7 @@
                 <div style="margin-right: 20px" align="right"><span>当前用户：</span><span style="color: #ffffff">${sessionScope.uname}</span></div>
                 <dl class="layui-nav-child">
                     <dd><a href="repwd">修改密码</a></dd>
-                    <dd><a href="login">退出账户</a></dd>
+                    <dd><a href="logout">退出账户</a></dd>
                 </dl>
             </li>
         </ul>
@@ -52,7 +52,7 @@
                         <dd><a href="jobList">部门管理</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="login">班级选课管理</a></li>
+                <li class="layui-nav-item"><a href="selectCourseList">班级选课管理</a></li>
                 <li class="layui-nav-item"><a href="studentList">学生基本信息管理</a></li>
             </ul>
         </div>
@@ -121,12 +121,7 @@
                     <input id="major" type="text" name="major" required  lay-verify="required" placeholder="请输入专业" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <%--<div class="layui-form-item">
-                <label class="layui-form-label">专业</label>
-                <div class="layui-input-inline">
-                    <input id="major" type="text" name="major" required  lay-verify="required" placeholder="请输入专业" autocomplete="off" class="layui-input">
-                </div>
-            </div>--%>
+
             <div class="layui-form-item">
                 <label class="layui-form-label">备注</label>
                 <div class="layui-input-inline">
@@ -205,7 +200,7 @@
                     setTimeout('closeadd()',1000)
                 },
                 error:function (data) {
-                    layer.msg("执行失败")
+                    //layer.msg("执行失败")
                 }
             })
         })

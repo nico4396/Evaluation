@@ -32,6 +32,12 @@ public class UserLogin {
         this.power = power;
     }
 
+    public UserLogin(Integer uid, String uname, String power) {
+        this.uid = uid;
+        this.uname = uname;
+        this.power = power;
+    }
+
     public Integer getUid() {
         return uid;
     }

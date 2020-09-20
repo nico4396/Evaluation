@@ -28,6 +28,21 @@ public class JobController {
     @Autowired
     IJobService jobService;
     /**
+     * @Description 判断学生是否入职
+     * @params [tid]
+     * @return boolean
+     **/
+    @RequestMapping(value = "/checkjobToStudent",produces = "text/html;charset=utf-8")
+    @ResponseBody
+    public String checkjobToStudent(Integer jid){
+        boolean isCheck = jobService.checkjobToStudent(jid);
+        if (isCheck){
+            return "不能删除";
+        }else {
+            return "可以删除";
+        }
+    }
+    /**
      * @Description  编辑信息
      * @params [uid, uname, pwd, power]
      * @return java.lang.String

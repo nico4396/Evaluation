@@ -50,9 +50,9 @@ public class LoginController {
             if (list.get(0).getPower().equals("管理员")) {
                 return "mindex";
             } else if (list.get(0).getPower().equals("教师")) {
-                return "teacher";
+                return "stuList";
             } else if (list.get(0).getPower().equals("项目经理")) {
-                return "manager";
+                return "empList";
             } else {
                 model.addAttribute("loginMsg", "用户名或密码错误");
                 return "login";
@@ -67,11 +67,23 @@ public class LoginController {
         return "login";
     }
 
+ /*   @RequestMapping("/empList")
+    public String empList() {
+        return "empList";
+    }
+*/
+    @RequestMapping("/stuList")
+    public String stuList() {
+        return "stuList";
+    }
     @RequestMapping("/mindex")
     public String mindex() {
         return "../../WEB-INF/view/admin/mindex";
     }
-
+    @RequestMapping("/logout")
+    public String logout() {
+        return "logout";
+    }
     @RequestMapping("/repwd")
     public String repwd() {
         return "repwd";

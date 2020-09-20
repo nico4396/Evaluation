@@ -30,7 +30,7 @@
                 <div style="margin-right: 20px" align="right"><span>当前用户：</span><span style="color: #ffffff">${sessionScope.uname}</span></div>
                 <dl class="layui-nav-child">
                     <dd><a href="repwd">修改密码</a></dd>
-                    <dd><a href="login">退出账户</a></dd>
+                    <dd><a href="logout">退出账户</a></dd>
                 </dl>
             </li>
         </ul>
@@ -52,7 +52,7 @@
                         <dd><a href="jobList">部门管理</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="login">班级选课管理</a></li>
+                <li class="layui-nav-item"><a href="selectCourseList">班级选课管理</a></li>
                 <li class="layui-nav-item"><a href="studentList">学生基本信息管理</a></li>
             </ul>
         </div>
@@ -107,25 +107,30 @@
         layer = layui.layer;
         var form = layui.form;        //点击提交按钮
         $("#addUserbtn").click(function () {
-            $.ajax({
-                url:"addUserLogin",
-                type:"post",
-                data:{
-                    uname:$("#uname").val(),
-                    pwd:$("#pwd").val(),
-                    power:$("[name=power]:checked").val(),
-                },
-                dataType:"text",//默认值为text
-                success:function (data) {
+            if ($("#uname").val() !=null ||$("#uname").val()!==""){
+                $.ajax({
+                    url:"addUserLogin",
+                    type:"post",
+                    data:{
+                        uname:$("#uname").val(),
+                        pwd:$("#pwd").val(),
+                        power:$("[name=power]:checked").val(),
+                    },
+                    dataType:"text",//默认值为text
+                    success:function (data) {
 
-                    layer.msg(data);
-                    setTimeout('closeadd()',1000)
-                },
-                error:function (data) {
-                    layer.msg("执行失败")
-                }
-            })
-        })
+                        layer.msg(data);
+                        setTimeout('closeadd()',1000)
+                    },
+                    error:function (data) {
+                        layer.msg("执行失败")
+                    }
+                })
+            }else {
+                layer.msg("不能为空")
+            }
+
+        });
 
         //执行一个laydate实例
         laydate.render({
